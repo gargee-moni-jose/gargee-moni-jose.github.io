@@ -1,0 +1,751 @@
+import { useRef, useState } from "react";
+import type { PointerEvent, ReactNode } from "react";
+import { PROJECTS, type Project } from "../data";
+import { Arrow, DarkCTA } from "../components/Shell";
+
+/* ---------- small building blocks ---------- */
+
+function Eyebrow({ children }: { children: ReactNode }) {
+  return <p className="eyebrow">{children}</p>;
+}
+
+function SectionLabel({
+  n,
+  title,
+}: {
+  n: string;
+  title: string;
+}) {
+  return (
+    <div className="flex items-baseline gap-5">
+      <span className="eyebrow">{n}</span>
+      <h2 className="h2 text-[clamp(28px,3.6vw,46px)]">{title}</h2>
+    </div>
+  );
+}
+
+function Wire({ variant }: { variant: number }) {
+  const layouts = [
+    ["head", "hero", "row3"],
+    ["head", "row2", "row3"],
+    ["head", "split", "list"],
+    ["head", "row3", "row3"],
+    ["head", "form", "cta"],
+  ];
+  const parts = layouts[variant % layouts.length];
+  return (
+    <div className="flex h-full w-full flex-col gap-3 bg-[#f6f6f6] p-5">
+      {parts.map((p, i) => (
+        <div key={i} className="space-y-2">
+          {p === "head" && (
+            <div className="flex items-center justify-between">
+              <div className="h-2.5 w-16 rounded-sm bg-[#dcdcdc]" />
+              <div className="flex gap-2">
+                <div className="h-2 w-8 rounded-sm bg-[#e4e4e4]" />
+                <div className="h-2 w-8 rounded-sm bg-[#e4e4e4]" />
+              </div>
+            </div>
+          )}
+          {p === "hero" && (
+            <div className="flex gap-3">
+              <div className="h-20 flex-1 rounded-sm bg-[#e2e2e2]" />
+              <div className="h-20 w-1/3 rounded-sm bg-[#e9e9e9]" />
+            </div>
+          )}
+          {p === "row3" && (
+            <div className="grid grid-cols-3 gap-2">
+              <div className="h-12 rounded-sm bg-[#e4e4e4]" />
+              <div className="h-12 rounded-sm bg-[#e4e4e4]" />
+              <div className="h-12 rounded-sm bg-[#e4e4e4]" />
+            </div>
+          )}
+          {p === "row2" && (
+            <div className="grid grid-cols-2 gap-2">
+              <div className="h-14 rounded-sm bg-[#e4e4e4]" />
+              <div className="h-14 rounded-sm bg-[#ececec]" />
+            </div>
+          )}
+          {p === "split" && (
+            <div className="flex gap-2">
+              <div className="h-16 w-1/4 rounded-sm bg-[#e0e0e0]" />
+              <div className="h-16 flex-1 rounded-sm bg-[#ebebeb]" />
+            </div>
+          )}
+          {p === "list" && (
+            <div className="space-y-1.5">
+              <div className="h-2 w-full rounded-sm bg-[#e4e4e4]" />
+              <div className="h-2 w-5/6 rounded-sm bg-[#e8e8e8]" />
+              <div className="h-2 w-2/3 rounded-sm bg-[#ececec]" />
+            </div>
+          )}
+          {p === "form" && (
+            <div className="space-y-2">
+              <div className="h-7 rounded-sm border border-[#e0e0e0] bg-white" />
+              <div className="h-7 rounded-sm border border-[#e0e0e0] bg-white" />
+            </div>
+          )}
+          {p === "cta" && (
+            <div className="flex justify-end">
+              <div className="h-7 w-24 rounded-md bg-[#d8d8d8]" />
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ScreenMock({
+  label,
+  i,
+  image,
+}: {
+  label: string;
+  i: number;
+  image?: { src: string; alt: string };
+}) {
+  return (
+    <figure className="min-w-[260px] flex-1">
+      <div className="overflow-hidden rounded-[12px] border border-[var(--color-border)] bg-white">
+        <div className="flex items-center gap-1.5 border-b border-[var(--color-border)] bg-[#fafafa] px-4 py-3">
+          <span className="h-2 w-2 rounded-full bg-[#e0e0e0]" />
+          <span className="h-2 w-2 rounded-full bg-[#e6e6e6]" />
+          <span className="h-2 w-2 rounded-full bg-[#ececec]" />
+          <span className="ml-3 h-2 w-24 rounded-sm bg-[#ececec]" />
+        </div>
+        {image ? (
+          <div className="h-[280px] overflow-hidden bg-[#f6f6f6]">
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="h-full w-full object-cover object-top"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <div className="space-y-3 p-5">
+            <div
+              className={`rounded-[6px] ${
+                i % 2 === 0 ? "bg-[#1B54FF]" : "bg-[#111]"
+              } ${i === 0 ? "h-24" : "h-16"}`}
+            />
+            <div className="grid grid-cols-3 gap-2">
+              <div className="h-14 rounded-[6px] bg-[#f1f1f1]" />
+              <div className="h-14 rounded-[6px] bg-[#f4f4f4]" />
+              <div className="h-14 rounded-[6px] bg-[#f1f1f1]" />
+            </div>
+            <div className="space-y-1.5">
+              <div className="h-2 w-full rounded-sm bg-[#ededed]" />
+              <div className="h-2 w-4/5 rounded-sm bg-[#f1f1f1]" />
+            </div>
+            <div className="flex justify-between pt-1">
+              <div className="h-6 w-20 rounded-full border border-[var(--color-border)]" />
+              <div className="h-6 w-24 rounded-md bg-[#111]" />
+            </div>
+          </div>
+        )}
+      </div>
+      <figcaption className="mt-3 text-[12.5px] text-[var(--color-muted)]">
+        {label}
+      </figcaption>
+    </figure>
+  );
+}
+
+function ProjectGallery({ project }: { project: Project }) {
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const dragRef = useRef({ active: false, startX: 0, scrollLeft: 0 });
+  const [dragging, setDragging] = useState(false);
+  const images = [
+    { src: project.img, alt: project.alt, label: "Home page" },
+    ...(project.uiImages ?? [])
+      .filter((image) => image.src !== project.img)
+      .slice(0, 4)
+      .map((image) => ({
+        ...image,
+        label: image.alt
+          .replace(/^(?:HUBBO POS|Most Valuable Promotions) /, "")
+          .replace(/ design$/, ""),
+      })),
+  ];
+
+  const startDrag = (event: PointerEvent<HTMLDivElement>) => {
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+    dragRef.current = {
+      active: true,
+      startX: event.clientX,
+      scrollLeft: gallery.scrollLeft,
+    };
+    setDragging(true);
+    gallery.setPointerCapture(event.pointerId);
+  };
+
+  const drag = (event: PointerEvent<HTMLDivElement>) => {
+    const gallery = galleryRef.current;
+    if (!gallery || !dragRef.current.active) return;
+    event.preventDefault();
+    gallery.scrollLeft =
+      dragRef.current.scrollLeft - (event.clientX - dragRef.current.startX);
+  };
+
+  const endDrag = (event: PointerEvent<HTMLDivElement>) => {
+    if (!dragRef.current.active) return;
+    dragRef.current.active = false;
+    setDragging(false);
+    const gallery = galleryRef.current;
+    if (gallery?.hasPointerCapture(event.pointerId)) {
+      gallery.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  return (
+    <div className="mt-14 md:mt-20">
+      <div className="flex items-center justify-between gap-4">
+        <Eyebrow>Selected screens</Eyebrow>
+        <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-muted)]">
+          Scroll / drag
+        </span>
+      </div>
+      <div
+        ref={galleryRef}
+        className={`project-gallery ${dragging ? "is-dragging" : ""}`}
+        onPointerDown={startDrag}
+        onPointerMove={drag}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onPointerLeave={(event) => {
+          if (dragRef.current.active) endDrag(event);
+        }}
+        tabIndex={0}
+        aria-label={`${project.title} project screens`}
+      >
+        <div className="project-gallery-track">
+          {images.map((image) => (
+            <figure className="project-gallery-card" key={image.src}>
+              <img src={image.src} alt={image.alt} draggable={false} />
+              <figcaption>{image.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ImageLedHero({
+  project,
+  projectType,
+  industryLabel,
+}: {
+  project: Project;
+  projectType: string;
+  industryLabel: string;
+}) {
+  return (
+    <header className="image-led-hero wrap pt-8 md:pt-12">
+      <a
+        href="#/projects"
+        className="arrow-link text-[13.5px] text-[var(--color-muted)]"
+      >
+        <span className="arw rotate-180">
+          <Arrow />
+        </span>
+        All projects
+      </a>
+
+      <div className="mt-16 text-center md:mt-24">
+        <Eyebrow>{project.tags.join(" · ")}</Eyebrow>
+        <h1 className="display mt-5">{project.title}</h1>
+        <p className="mx-auto mt-6 max-w-[650px] text-[16px] leading-[1.7] text-[var(--color-secondary)]">
+          {project.summary}
+        </p>
+      </div>
+
+      <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-8 border-y border-[var(--color-border)] py-7 sm:grid-cols-4">
+        {[ 
+          ["Project type", projectType],
+          ["Industry", industryLabel],
+          ["Role", project.role],
+          ["Timeline", project.timeline],
+        ].map(([key, value]) => (
+          <div key={key}>
+            <Eyebrow>{key}</Eyebrow>
+            <p className="mt-3 text-[14.5px] leading-[1.55]">{value}</p>
+          </div>
+        ))}
+      </div>
+
+      <ProjectGallery project={project} />
+    </header>
+  );
+}
+
+/* ---------- page ---------- */
+
+export function ProjectDetail({ slug }: { slug: string }) {
+  const project = PROJECTS.find((p) => p.slug === slug);
+  if (!project) {
+    return (
+      <section className="wrap section text-center">
+        <h1 className="h1">Project not found</h1>
+        <p className="lede mt-4">
+          That case study doesn&apos;t exist — the full selection is on the
+          projects page.
+        </p>
+        <a href="#/projects" className="btn btn-dark mt-8">
+          Back to projects <Arrow />
+        </a>
+      </section>
+    );
+  }
+
+  const idx = PROJECTS.indexOf(project as Project);
+  const next = PROJECTS[(idx + 1) % PROJECTS.length];
+
+  return (
+    <article>
+      {/* ---------- HERO ---------- */}
+      {project.slug === "hubbo-pos" ? (
+        <ImageLedHero
+          project={project}
+          projectType="Website"
+          industryLabel="F&B · POS software"
+        />
+      ) : project.slug === "most-valuable-promotions" ? (
+        <ImageLedHero
+          project={project}
+          projectType="Website"
+          industryLabel="Sports · Boxing"
+        />
+      ) : (
+        <header className="wrap pt-8 md:pt-12">
+          <a
+            href="#/projects"
+            className="arrow-link text-[13.5px] text-[var(--color-muted)]"
+          >
+            <span className="arw rotate-180">
+              <Arrow />
+            </span>
+            All projects
+          </a>
+
+          <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <Eyebrow>
+                {project.tags.join(" · ")} · {project.year}
+              </Eyebrow>
+              <h1 className="h1 mt-5 text-[clamp(36px,5.4vw,68px)]">
+                {project.title}
+              </h1>
+            </div>
+            <div className="lg:col-span-4 lg:col-start-9 lg:pt-10">
+              <p className="text-[16px] leading-[1.65] text-[var(--color-secondary)]">
+                {project.summary}
+              </p>
+            </div>
+          </div>
+
+          <figure className="mt-12 md:mt-16" data-reveal>
+            <div className="overflow-hidden rounded-[12px] bg-[#f3f3f3]">
+              <img
+                src={project.img}
+                alt={project.alt}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-3 text-[12.5px] text-[var(--color-muted)]">
+              {project.title} — final visual direction.
+            </figcaption>
+          </figure>
+        </header>
+      )}
+
+      {/* ---------- OVERVIEW ---------- */}
+      {!['hubbo-pos', 'most-valuable-promotions'].includes(project.slug) && (
+        <section className="wrap mt-20 md:mt-28">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-[var(--color-border)] pt-8 sm:grid-cols-3 lg:grid-cols-6">
+            {[
+              ["Role", project.role],
+              ["Timeline", project.timeline],
+              ["Team", project.team],
+              ["Platform", project.platform],
+              ["Industry", project.industry],
+              ["Year", project.year],
+            ].map(([k, v]) => (
+              <div key={k}>
+                <Eyebrow>{k}</Eyebrow>
+                <p className="mt-3 text-[14.5px] leading-[1.55] text-[var(--color-ink)]">
+                  {v}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ---------- PROBLEM ---------- */}
+      <section className="wrap section">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
+            <SectionLabel n="01" title="The Problem" />
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6" data-reveal>
+            <p className="text-[clamp(19px,2vw,24px)] leading-[1.5] tracking-[-0.015em] text-[var(--color-ink)]">
+              {project.problem}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- CONTEXT ---------- */}
+      <section className="wrap pb-8">
+        <div className="grid grid-cols-1 gap-8 border-t border-[var(--color-border)] pt-12 lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
+            <SectionLabel n="02" title="The Context" />
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <ul>
+              {project.context.map((c) => (
+                <li
+                  key={c}
+                  className="flex gap-5 border-b border-[var(--color-border)] py-5 first:pt-0"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-[11px] h-px w-5 shrink-0 bg-[var(--color-ghost)]"
+                  />
+                  <span className="text-[15.5px] leading-[1.65] text-[var(--color-secondary)]">
+                    {c}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- RESEARCH ---------- */}
+      <section className="wrap section">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
+            <SectionLabel n="03" title="Research" />
+            <p className="mt-5 max-w-[34ch] text-[14.5px] leading-[1.6] text-[var(--color-muted)]">
+              Activities run for this project. Findings are recorded in the
+              project file — nothing here is inferred after the fact.
+            </p>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2">
+              {project.research.map((r, i) => (
+                <div
+                  key={r.title}
+                  className="border-t border-[var(--color-border)] py-6"
+                  data-reveal
+                  style={{ transitionDelay: `${i * 50}ms` }}
+                >
+                  <Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow>
+                  <h3 className="mt-3 text-[17px] font-bold tracking-[-0.02em]">
+                    {r.title}
+                  </h3>
+                  <p className="mt-2 text-[14.5px] leading-[1.6] text-[var(--color-secondary)]">
+                    {r.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- INSIGHTS ---------- */}
+      <section className="wrap pb-4">
+        <div className="border-t border-[var(--color-border)] pt-12">
+          <SectionLabel n="04" title="Key Insights" />
+          <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2">
+            {project.insights.map((ins, i) => (
+              <div
+                key={ins.title}
+                data-reveal
+                style={{ transitionDelay: `${i * 60}ms` }}
+              >
+                <span className="block font-mono text-[13px] font-medium tracking-[0.1em] text-[var(--color-muted)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-[22px] font-bold leading-tight tracking-[-0.025em]">
+                  {ins.title}
+                </h3>
+                <p className="mt-3 max-w-[46ch] text-[15px] leading-[1.65] text-[var(--color-secondary)]">
+                  {ins.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- USER FLOW ---------- */}
+      <section className="wrap section">
+        <div className="border-t border-[var(--color-border)] pt-12">
+          <SectionLabel n="05" title="User Flow" />
+          <div className="mt-10 overflow-x-auto pb-4">
+            <ol className="flex min-w-max items-center gap-3">
+              {project.flow.map((step, i) => (
+                <li key={step} className="flex items-center gap-3">
+                  <div className="rounded-[8px] border border-[var(--color-border)] px-5 py-4">
+                    <span className="eyebrow">{String(i + 1).padStart(2, "0")}</span>
+                    <p className="mt-2 whitespace-nowrap text-[14.5px] font-medium">
+                      {step}
+                    </p>
+                  </div>
+                  {i < project.flow.length - 1 && (
+                    <svg
+                      width="34"
+                      height="8"
+                      viewBox="0 0 34 8"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M0 4h30M27 1l4 3-4 3"
+                        stroke="#c7c7c7"
+                        strokeWidth="1"
+                      />
+                    </svg>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </div>
+          <p className="text-[12.5px] text-[var(--color-muted)]">
+            Primary path, discovery to completion. Exceptions and error branches
+            documented separately.
+          </p>
+        </div>
+      </section>
+
+      {/* ---------- IA ---------- */}
+      <section className="wrap pb-4">
+        <div className="grid grid-cols-1 gap-8 border-t border-[var(--color-border)] pt-12 lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
+            <SectionLabel n="06" title="Information Architecture" />
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            {project.ia.map((branch) => (
+              <div
+                key={branch.level}
+                className="border-t border-[var(--color-border)] py-6 first:border-t-0 first:pt-0"
+              >
+                <p className="text-[16px] font-bold tracking-[-0.02em]">
+                  {branch.level}
+                </p>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {branch.items.map((it) => (
+                    <li key={it} className="pill">
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- WIREFRAMES ---------- */}
+      <section className="wrap section">
+        <div className="border-t border-[var(--color-border)] pt-12">
+          <SectionLabel n="07" title="Wireframes" />
+          <div className="mt-10 overflow-x-auto pb-4">
+            <div className="flex min-w-max gap-6">
+              {project.wireframes.map((w, i) => (
+                <figure key={w} className="w-[300px] shrink-0">
+                  <div className="h-[220px] overflow-hidden rounded-[12px] border border-[var(--color-border)]">
+                    <Wire variant={i} />
+                  </div>
+                  <figcaption className="mt-3 text-[12.5px] text-[var(--color-muted)]">
+                    {w}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- DESIGN EXPLORATION ---------- */}
+      <section className="wrap pb-4">
+        <div className="border-t border-[var(--color-border)] pt-12">
+          <SectionLabel n="08" title="Design Exploration" />
+          <div className="mt-10">
+            {project.directions.map((d, i) => (
+              <div
+                key={d.name}
+                className="grid grid-cols-1 gap-x-8 gap-y-3 border-t border-[var(--color-border)] py-7 md:grid-cols-12"
+                data-reveal
+              >
+                <div className="md:col-span-4">
+                  <p
+                    className={`text-[18px] font-bold tracking-[-0.025em] ${
+                      i === project.directions.length - 1 ? "" : "text-[var(--color-muted)]"
+                    }`}
+                  >
+                    {d.name}
+                  </p>
+                </div>
+                <p className="text-[15.5px] leading-[1.65] text-[var(--color-secondary)] md:col-span-7 md:col-start-6">
+                  {d.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- DESIGN SYSTEM ---------- */}
+      <section className="wrap section">
+        <div className="grid grid-cols-1 gap-8 border-t border-[var(--color-border)] pt-12 lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
+            <SectionLabel n="09" title="Design System" />
+            <div className="mt-7 flex flex-wrap gap-2">
+              {["#0F0F0F", "#FFFFFF", "#1B54FF", "#8A8A8A", "#EAEAEA"].map(
+                (c) => (
+                  <span
+                    key={c}
+                    className="h-9 w-9 rounded-[6px] border border-[var(--color-border)]"
+                    style={{ background: c }}
+                    title={c}
+                  />
+                )
+              )}
+            </div>
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <dl>
+              {project.system.map((s) => (
+                <div
+                  key={s.label}
+                  className="grid grid-cols-1 gap-1 border-t border-[var(--color-border)] py-5 sm:grid-cols-[140px_1fr] sm:gap-6"
+                >
+                  <dt className="eyebrow pt-1">{s.label}</dt>
+                  <dd className="text-[15px] leading-[1.6] text-[var(--color-secondary)]">
+                    {s.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- FINAL UI ---------- */}
+      <section className="wrap pb-4">
+        <div className="border-t border-[var(--color-border)] pt-12">
+          <SectionLabel n="10" title="Final UI" />
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {project.uiScreens.map((s, i) => (
+              <div key={s} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
+                <ScreenMock label={s} i={i} image={project.uiImages?.[i]} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 gap-8 border-t border-[var(--color-border)] pt-8 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <Eyebrow>Interaction</Eyebrow>
+            </div>
+            <p className="text-[15.5px] leading-[1.7] text-[var(--color-secondary)] lg:col-span-7 lg:col-start-6">
+              {project.interaction}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- OUTCOME ---------- */}
+      <section className="wrap section">
+        <div className="grid grid-cols-1 gap-8 border-t border-[var(--color-border)] pt-12 lg:grid-cols-12">
+          <div className="lg:col-span-4" data-reveal>
+            <SectionLabel n="11" title="Outcome" />
+          </div>
+          <div className="lg:col-span-7 lg:col-start-6" data-reveal>
+            <p className="text-[clamp(18px,1.8vw,22px)] leading-[1.55] tracking-[-0.015em]">
+              {project.outcome}
+            </p>
+            <p className="mt-6 border-l border-[var(--color-ghost)] pl-5 font-mono text-[12.5px] leading-[1.7] text-[var(--color-muted)]">
+              Measured results are intentionally left as placeholders. Numbers
+              are only published once they come from the project record.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- REFLECTION ---------- */}
+      <section className="wrap pb-4">
+        <div className="border-t border-[var(--color-border)] pt-12">
+          <SectionLabel n="12" title="Reflection" />
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+            {[
+              ["What I learned", project.reflection.learned],
+              ["What I would improve", project.reflection.improve],
+              ["What I'd explore next", project.reflection.next],
+            ].map(([k, v], i) => (
+              <div
+                key={k}
+                data-reveal
+                style={{ transitionDelay: `${i * 70}ms` }}
+              >
+                <Eyebrow>{k}</Eyebrow>
+                <p className="mt-3 text-[15px] leading-[1.65] text-[var(--color-secondary)]">
+                  {v}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------- NEXT PROJECT ---------- */}
+      <section className="wrap section">
+        <a
+          href={`#/project/${next.slug}`}
+          className="group block border-t border-[var(--color-border)] pt-12"
+        >
+          <div className="flex items-baseline justify-between gap-6">
+            <Eyebrow>Next project</Eyebrow>
+            <span className="arrow-link text-[13.5px] text-[var(--color-muted)]">
+              View <Arrow />
+            </span>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+            <div className="overflow-hidden rounded-[12px] lg:col-span-7">
+              <img
+                src={next.img}
+                alt={next.alt}
+                loading="lazy"
+                className="aspect-[16/9] w-full object-cover transition-transform duration-[400ms] group-hover:scale-[1.03]"
+              />
+            </div>
+            <div className="lg:col-span-4 lg:col-start-9">
+              <h2 className="h2 text-[clamp(28px,3.4vw,44px)]">
+                {next.title}
+              </h2>
+              <p className="mt-4 text-[15px] leading-[1.65] text-[var(--color-secondary)]">
+                {next.summary}
+              </p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {next.tags.map((t) => (
+                  <span key={t} className="pill">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </a>
+      </section>
+
+      <DarkCTA />
+    </article>
+  );
+}
