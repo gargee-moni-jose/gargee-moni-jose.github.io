@@ -303,6 +303,25 @@ function HubboImage({
   );
 }
 
+function HubboReferenceImage({
+  name,
+  alt,
+  className = "",
+}: {
+  name: string;
+  alt: string;
+  className?: string;
+}) {
+  return (
+    <img
+      src={`${import.meta.env.BASE_URL}images/hubbo/case-study/${name}.jpg`}
+      alt={alt}
+      className={className}
+      loading="lazy"
+    />
+  );
+}
+
 function HubboCaseStudy({ project, next }: { project: Project; next: Project }) {
   return (
     <article className="hubbo-case-study">
@@ -452,6 +471,108 @@ function HubboCaseStudy({ project, next }: { project: Project; next: Project }) 
           </a>
         </div>
       </section>
+      <DarkCTA />
+    </article>
+  );
+}
+
+function HubboReferenceCaseStudy({ next }: { project: Project; next: Project }) {
+  const challenges = [
+    ["The product wasn’t immediately clear", "Visitors struggled to understand what HUBBO POS does, who it is designed for, which problems it solves and why it is different from other POS platforms."],
+    ["The conversion path wasn’t clear", "The website had calls to action, but they were not always connected to a clear journey. Visitors could consume information without an obvious next step."],
+    ["The website needed to support lead generation", "The redesign needed to connect product understanding, relevant proof and clear lead-generation moments throughout the experience."],
+  ];
+
+  return (
+    <article className="hubbo-reference-case-study">
+      <header className="hubbo-ref-hero">
+        <div className="hubbo-ref-shell">
+          <a href="#/projects" className="hubbo-ref-back"><span className="arw rotate-180"><Arrow /></span>All projects</a>
+          <div className="hubbo-ref-kicker"><Eyebrow>F&amp;B</Eyebrow><span>Website redesign</span></div>
+          <div className="hubbo-ref-hero-grid">
+            <div>
+              <h1>Making a complex POS product easier to understand and act on for lead generation.</h1>
+              <p>HUBBO POS is an all-in-one point-of-sale platform for F&amp;B businesses across Southeast Asia. I led the redesign of its marketing website to make the product clearer, easier to explore and more conversion-focused.</p>
+              <dl className="hubbo-ref-meta">
+                <div><dt>Role</dt><dd>Design Lead &amp; PoC</dd></div>
+                <div><dt>Client</dt><dd>HUBBO POS, South-East Asia</dd></div>
+                <div><dt>Year</dt><dd>2024</dd></div>
+              </dl>
+            </div>
+            <div className="hubbo-ref-overview-image"><HubboReferenceImage name="overview" alt="HUBBO POS overview screen showing the restaurant POS website redesign" /></div>
+          </div>
+        </div>
+      </header>
+
+      <section className="hubbo-ref-section hubbo-ref-light">
+        <div className="hubbo-ref-shell">
+          <Eyebrow>The Challenge</Eyebrow>
+          <h2>The existing website had three major problems.</h2>
+          <div className="hubbo-ref-challenges">
+            {challenges.map(([title, body], i) => (
+              <article key={title}>
+                <span className="hubbo-ref-number">0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-dark">
+        <div className="hubbo-ref-shell">
+          <Eyebrow>The Goal</Eyebrow>
+          <h2>Rather than treating the redesign as a visual refresh, I defined the objective around three questions.</h2>
+          <div className="hubbo-ref-goal-cards">
+            <div><strong>Can a restaurant owner understand the product quickly?</strong></div>
+            <div><strong>Can they find the information relevant to their business?</strong></div>
+            <div><strong>Can they easily take the next step?</strong></div>
+          </div>
+          <HubboReferenceImage name="the-goal" alt="HUBBO POS goal section and product screens" className="hubbo-ref-wide-image" />
+        </div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-split hubbo-ref-light">
+        <div className="hubbo-ref-shell">
+          <div className="hubbo-ref-copy"><Eyebrow>Research &amp; Market Analysis</Eyebrow><h2>Understanding the product before shaping the story.</h2><p>Before designing the interface, I focused on understanding HUBBO POS from both a product and market perspective. I mapped its core capabilities, key features, user needs, value propositions, existing content, navigation and conversion points.</p><p>I then studied Southeast Asian POS products, global restaurant-management platforms, SaaS websites, B2B lead-generation patterns, CTA strategies, pricing structures and product storytelling to understand how similar products communicate value clearly and drive action.</p></div>
+          <HubboReferenceImage name="research-market-analysis" alt="HUBBO POS research and market analysis visual" />
+        </div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-media hubbo-ref-light">
+        <div className="hubbo-ref-shell"><Eyebrow>User Persona</Eyebrow><h2>Designing for the people running the restaurant.</h2><HubboReferenceImage name="user-persona" alt="HUBBO POS user persona research cards" className="hubbo-ref-wide-image" /></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-media hubbo-ref-light">
+        <div className="hubbo-ref-shell"><Eyebrow>Information Architecture</Eyebrow><h2>Turning a broad product into a navigable story.</h2><HubboReferenceImage name="information-architecture" alt="HUBBO POS information architecture map" className="hubbo-ref-wide-image" /></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-split hubbo-ref-light hubbo-ref-campaign">
+        <div className="hubbo-ref-shell"><div className="hubbo-ref-copy"><Eyebrow>Campaign Page as a Strategic MVP</Eyebrow><h2>Launching the first conversion touchpoint before the full redesign.</h2><p>The complete website redesign required more time, but the business needed a stronger digital presence immediately. Instead of waiting for the entire website to be completed, we proposed creating a campaign page that could function as an initial lead-generation touchpoint.</p></div><HubboReferenceImage name="campaign-page-as-a-strategic-mvp" alt="HUBBO POS campaign page strategic MVP visual" /></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-media hubbo-ref-light">
+        <div className="hubbo-ref-shell"><Eyebrow>Wireframe</Eyebrow><h2>Testing the structure before adding the surface.</h2><HubboReferenceImage name="wireframe" alt="HUBBO POS responsive wireframes" className="hubbo-ref-wide-image" /></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-dark hubbo-ref-media">
+        <div className="hubbo-ref-shell"><Eyebrow>Visual Design</Eyebrow><h2>Warm product moments with a clear conversion rhythm.</h2><HubboReferenceImage name="visual-design" alt="HUBBO POS visual design explorations" className="hubbo-ref-wide-image" /></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-media hubbo-ref-light">
+        <div className="hubbo-ref-shell"><Eyebrow>Responsive Experience</Eyebrow><h2>One clear product story, adapted to every decision context.</h2><p className="hubbo-ref-lede">The system was designed across desktop, tablet and mobile from the start. Content order, hierarchy and the lead path stay coherent as the space changes.</p><HubboReferenceImage name="one-clear-product-story-adapted-to-every-decision-context" alt="HUBBO POS desktop tablet and mobile responsive layouts" className="hubbo-ref-wide-image" /></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-media hubbo-ref-light">
+        <div className="hubbo-ref-shell"><Eyebrow>Design System &amp; Reusable Components</Eyebrow><h2>Making the approved direction easier to build consistently.</h2><HubboReferenceImage name="design-system-reusable-components" alt="HUBBO POS design system and reusable components" className="hubbo-ref-wide-image" /><div className="hubbo-ref-delivery-grid"><p>From design to implementation we prepared responsive specifications, spacing and layout guidance, component states, asset specifications, interaction behaviour and page-level documentation.</p><p>The goal was to reduce ambiguity during implementation and maintain consistency between the approved designs and the final website.</p></div></div>
+      </section>
+
+      <section className="hubbo-ref-section hubbo-ref-light hubbo-ref-qa">
+        <div className="hubbo-ref-shell"><Eyebrow>Quality doesn’t stop at handoff</Eyebrow><h2>Reviewing the implementation against the approved designs.</h2><p className="hubbo-ref-lede">During deployment, I created a Design Quality Assurance document and reviewed the implementation against the approved designs.</p><HubboReferenceImage name="quality-doesnt-stop-at-handoff" alt="HUBBO POS quality assurance review screens" className="hubbo-ref-wide-image" /></div>
+      </section>
+
+      <section className="hubbo-ref-closing"><div className="hubbo-ref-shell"><p>The redesign shifted HUBBO POS from a feature-heavy website toward a clearer product story, helping visitors understand the platform, evaluate its relevance and take the next step with less friction.</p><a href={`#/project/${next.slug}`} className="hubbo-ref-next"><Eyebrow>Next project</Eyebrow><span>{next.title}<Arrow /></span></a></div></section>
       <DarkCTA />
     </article>
   );
@@ -730,7 +851,7 @@ export function ProjectDetail({ slug }: { slug: string }) {
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
 
   if (project.slug === "hubbo-pos") {
-    return <HubboCaseStudy project={project} next={next} />;
+    return <HubboReferenceCaseStudy project={project} next={next} />;
   }
   if (project.slug === "most-valuable-promotions") {
     return <MvpCaseStudy project={project} next={next} />;
