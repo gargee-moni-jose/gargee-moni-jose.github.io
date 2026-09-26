@@ -413,6 +413,11 @@
     --hubbo-amber: #ffb800;
     --hubbo-cream: #f7f4ec;
   }
+  .mvp-case-study {
+    --hubbo-espresso: #0c0c0d;
+    --hubbo-amber: #d8ff3f;
+    --hubbo-cream: #f0f0ee;
+  }
   .hubbo-panel {
     padding-block: clamp(72px, 9vw, 140px);
     overflow: hidden;

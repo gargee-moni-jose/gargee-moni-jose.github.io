@@ -457,6 +457,132 @@ function HubboCaseStudy({ project, next }: { project: Project; next: Project }) 
   );
 }
 
+function MvpCaseStudy({ project, next }: { project: Project; next: Project }) {
+  return (
+    <article className="hubbo-case-study mvp-case-study">
+      <section className="hubbo-panel hubbo-panel-dark hubbo-hero-panel">
+        <div className="hubbo-wrap">
+          <a href="#/projects" className="hubbo-back-link"><span className="arw rotate-180"><Arrow /></span>All projects</a>
+          <div className="hubbo-hero-grid">
+            <div>
+              <Eyebrow>01 / Website design</Eyebrow>
+              <h1>Giving fighters a platform built for the moment.</h1>
+              <p>
+                Most Valuable Promotions brings together the world&apos;s greatest boxers
+                with a fighter-first mentality. I designed a digital home for its
+                athletes, events, media and ticket journeys.
+              </p>
+              <div className="hubbo-meta">
+                <div><Eyebrow>Role</Eyebrow><strong>{project.role}</strong></div>
+                <div><Eyebrow>Timeline</Eyebrow><strong>{project.timeline}</strong></div>
+                <div className="hubbo-meta-wide"><Eyebrow>Scope</Eyebrow><strong>Website · Sports · Boxing</strong></div>
+              </div>
+            </div>
+            <div className="hubbo-hero-shot"><HubboImage project={project} name="home.jpg" alt="Most Valuable Promotions homepage" /></div>
+          </div>
+          <p className="hubbo-caption">A high-contrast visual system gives the athletes the focus, while event detail and motion keep the experience moving.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark">
+        <div className="hubbo-wrap hubbo-two-column">
+          <div>
+            <Eyebrow>02 / The promotion problem</Eyebrow>
+            <h2>The website needed to make athletes, events and tickets feel like one story.</h2>
+            <p className="hubbo-muted">MVP needed a compelling platform that could introduce its athletes, build anticipation for upcoming events, preserve the archive and make ticket discovery feel immediate.</p>
+            <div className="hubbo-card-grid">
+              {[
+                ["Put athletes first", "Make fighters the primary story and give every profile room to build connection."],
+                ["Make events actionable", "Move fans from anticipation to event detail and tickets without losing momentum."],
+                ["Build the archive", "Use past events, press and media to give the promotion a living history."],
+              ].map(([title, body], i) => (
+                <div className="hubbo-light-card" key={title}>
+                  <Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow><h3>{title}</h3><p>{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="hubbo-phone-shot"><HubboImage project={project} name="fighter-profile.jpg" alt="MVP fighter profile page" /></div>
+        </div>
+        <p className="hubbo-panel-note">Designed as one connected journey across desktop, tablet and mobile, with motion adding energy at key moments.</p>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-light">
+        <div className="hubbo-wrap">
+          <Eyebrow>03 / Understanding the experience</Eyebrow>
+          <h2>A fighter-first story that moves from recognition to action.</h2>
+          <p className="hubbo-intro">The information architecture connects the people, events and media that make MVP meaningful, then makes the next action obvious for fans who are ready to follow or book.</p>
+          <div className="hubbo-step-grid">
+            {[
+              ["Meet", "Discover MVP and the athletes shaping its story"],
+              ["Follow", "Explore profiles, records, media and highlights"],
+              ["Experience", "Understand the matchup and event details"],
+              ["Book", "Move into tickets and fight-pass paths"],
+            ].map(([title, body], i) => (
+              <div className="hubbo-step" key={title}><Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow><h3>{title}</h3><p>{body}</p></div>
+            ))}
+          </div>
+          <p className="hubbo-result">The result: a clearer path from discovering a fighter to showing up for the fight.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark">
+        <div className="hubbo-wrap hubbo-two-column hubbo-direction">
+          <div>
+            <Eyebrow>04 / Design direction</Eyebrow>
+            <h2>A fight-first visual system with room for motion.</h2>
+            <p className="hubbo-muted">Dark surfaces, expressive type and editorial image crops create the atmosphere of fight night while keeping athlete information and event actions easy to scan.</p>
+            <ul className="hubbo-bullets">
+              <li><strong>Athlete-led storytelling</strong><span>Profiles and portraits carry the emotional centre of the promotion.</span></li>
+              <li><strong>Event energy</strong><span>Matchups, dates and ticket actions are treated as moments of anticipation.</span></li>
+              <li><strong>Motion with purpose</strong><span>An opening animation and restrained transitions make arrival feel memorable.</span></li>
+            </ul>
+          </div>
+          <div className="hubbo-collage"><HubboImage project={project} name="upcoming-event.jpg" alt="MVP upcoming event page" /><HubboImage project={project} name="fighter-profile.jpg" alt="MVP fighter profile visual" /></div>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark hubbo-responsive-panel">
+        <div className="hubbo-wrap">
+          <Eyebrow>05 / Responsive experience</Eyebrow>
+          <h2>One fighter-first experience across every screen.</h2>
+          <p className="hubbo-muted hubbo-responsive-copy">The hierarchy stays focused as the layout changes: the athlete or event leads, supporting proof follows, and the path to tickets remains easy to find.</p>
+          <div className="hubbo-responsive-grid">
+            <HubboImage project={project} name="home.jpg" alt="MVP desktop homepage experience" />
+            <HubboImage project={project} name="upcoming-event.jpg" alt="MVP tablet event experience" />
+            <HubboImage project={project} name="fight-pass.jpg" alt="MVP mobile fight pass experience" />
+          </div>
+          <p className="hubbo-panel-note">Desktop: athlete and event impact · Tablet: structured discovery · Mobile: essential story and a clear action.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-light">
+        <div className="hubbo-wrap hubbo-two-column hubbo-delivery">
+          <div>
+            <Eyebrow>06 / Motion &amp; delivery</Eyebrow>
+            <h2>Designed to build anticipation and move fans to tickets.</h2>
+            <p className="hubbo-intro">The final experience combined a strong athlete and event narrative with an opening animation, page transitions and a structured responsive hand-off.</p>
+            <div className="hubbo-delivery-shot"><HubboImage project={project} name="contact.jpg" alt="MVP contact page design" /></div>
+          </div>
+          <div className="hubbo-delivery-list">
+            {[
+              ["Content architecture", "Athletes, events, media, press and ticketing organised around how fans explore the promotion."],
+              ["Design & prototype", "High-fidelity responsive UI for the homepage, profiles, event detail and content archive."],
+              ["Motion direction", "Opening animation and repeatable transition concepts created with Lottie Files."],
+            ].map(([title, body], i) => (
+              <div className="hubbo-delivery-item" key={title}><Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow><div><h3>{title}</h3><p>{body}</p></div></div>
+            ))}
+            <p className="hubbo-scope">Scope: website design · responsive UI · athlete profiles · event journeys · motion direction</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="hubbo-next-section"><div className="hubbo-wrap"><a href={`#/project/${next.slug}`} className="hubbo-next-link"><Eyebrow>Next project</Eyebrow><span>{next.title}<Arrow /></span></a></div></section>
+      <DarkCTA />
+    </article>
+  );
+}
+
 /* ---------- page ---------- */
 
 export function ProjectDetail({ slug }: { slug: string }) {
@@ -481,6 +607,9 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
   if (project.slug === "hubbo-pos") {
     return <HubboCaseStudy project={project} next={next} />;
+  }
+  if (project.slug === "most-valuable-promotions") {
+    return <MvpCaseStudy project={project} next={next} />;
   }
 
   return (
