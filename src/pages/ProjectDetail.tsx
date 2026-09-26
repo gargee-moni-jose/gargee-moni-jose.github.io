@@ -281,6 +281,182 @@ function ImageLedHero({
   );
 }
 
+function HubboImage({
+  project,
+  name,
+  className = "",
+  alt,
+}: {
+  project: Project;
+  name: string;
+  className?: string;
+  alt?: string;
+}) {
+  const image = project.uiImages?.find((item) => item.src.includes(name));
+  return (
+    <img
+      src={image?.src ?? project.img}
+      alt={alt ?? image?.alt ?? project.alt}
+      className={className}
+      loading="lazy"
+    />
+  );
+}
+
+function HubboCaseStudy({ project, next }: { project: Project; next: Project }) {
+  return (
+    <article className="hubbo-case-study">
+      <section className="hubbo-panel hubbo-panel-dark hubbo-hero-panel">
+        <div className="hubbo-wrap">
+          <a href="#/projects" className="hubbo-back-link">
+            <span className="arw rotate-180"><Arrow /></span>
+            All projects
+          </a>
+          <div className="hubbo-hero-grid">
+            <div>
+              <Eyebrow>01 / Website redesign</Eyebrow>
+              <h1>Making a complex POS product easier to understand — and act on.</h1>
+              <p>
+                HUBBO POS is an all-in-one point-of-sale platform for F&amp;B businesses
+                across Southeast Asia. I led the redesign of its marketing website to
+                make the product clearer, easier to explore and more conversion-focused.
+              </p>
+              <div className="hubbo-meta">
+                <div><Eyebrow>Role</Eyebrow><strong>{project.role}</strong></div>
+                <div><Eyebrow>Timeline</Eyebrow><strong>{project.timeline}</strong></div>
+                <div className="hubbo-meta-wide"><Eyebrow>Scope</Eyebrow><strong>Website · B2B SaaS · F&amp;B technology</strong></div>
+              </div>
+            </div>
+            <div className="hubbo-hero-shot">
+              <HubboImage project={project} name="home.jpg" alt="HUBBO POS website homepage" />
+            </div>
+          </div>
+          <p className="hubbo-caption">The visual language carries the live product: deep espresso, energetic amber, clear white space and practical interface proof.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark">
+        <div className="hubbo-wrap hubbo-two-column">
+          <div>
+            <Eyebrow>02 / The conversion problem</Eyebrow>
+            <h2>The website needed to explain a broad product without making restaurant operators work for the answer.</h2>
+            <p className="hubbo-muted">The old experience was visually busy, its value proposition was easy to miss, and its paths to a demo were not doing enough work. The redesign turned the website into a product story with a clear next step.</p>
+            <div className="hubbo-card-grid">
+              {[
+                ["Clarify the offer", "Make the all-in-one proposition immediately understandable."],
+                ["Structure the journey", "Organise features by operator needs, not internal product categories."],
+                ["Support the decision", "Bring proof, use cases and lead capture closer to intent."],
+              ].map(([title, body], i) => (
+                <div className="hubbo-light-card" key={title}>
+                  <Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="hubbo-phone-shot">
+            <HubboImage project={project} name="request-demo.jpg" alt="HUBBO POS responsive request demo page" />
+          </div>
+        </div>
+        <p className="hubbo-panel-note">Designed as one journey across desktop, tablet and mobile — not a desktop page shrunk down.</p>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-light">
+        <div className="hubbo-wrap">
+          <Eyebrow>03 / Understanding the experience</Eyebrow>
+          <h2>A product story that moves from recognition to action.</h2>
+          <p className="hubbo-intro">Instead of listing every feature at once, the new information architecture leads with the customer&apos;s business problem, then reveals the relevant tools, proof and conversion path.</p>
+          <div className="hubbo-step-grid">
+            {[
+              ["Understand", "What HUBBO POS is and who it helps"],
+              ["Explore", "Solutions mapped to restaurant operations"],
+              ["Validate", "Features, proof and business type"],
+              ["Convert", "Demo and lead-generation paths"],
+            ].map(([title, body], i) => (
+              <div className="hubbo-step" key={title}>
+                <Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="hubbo-result">The result: a simpler narrative for first-time visitors and clearer routes for high-intent users.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark">
+        <div className="hubbo-wrap hubbo-two-column hubbo-direction">
+          <div>
+            <Eyebrow>04 / Design direction</Eyebrow>
+            <h2>Warm, operational and confidently simple.</h2>
+            <p className="hubbo-muted">The website balances restaurant energy with the clarity of business software. A deep espresso foundation makes the amber product moments feel purposeful — not decorative.</p>
+            <ul className="hubbo-bullets">
+              <li><strong>Amber as a signal</strong><span>Used for action, attention and brand recall.</span></li>
+              <li><strong>Product proof early</strong><span>Real interfaces make a broad product feel tangible.</span></li>
+              <li><strong>Editorial rhythm</strong><span>Generous space makes complex information easier to scan.</span></li>
+            </ul>
+          </div>
+          <div className="hubbo-collage">
+            <HubboImage project={project} name="solutions.jpg" alt="HUBBO POS solutions interface" />
+            <HubboImage project={project} name="pricing.jpg" alt="HUBBO POS pricing interface" />
+          </div>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark hubbo-responsive-panel">
+        <div className="hubbo-wrap">
+          <Eyebrow>05 / Responsive experience</Eyebrow>
+          <h2>One clear product story, adapted to every decision context.</h2>
+          <p className="hubbo-muted hubbo-responsive-copy">The system was designed across desktop, tablet and mobile from the start. Content order, hierarchy and the lead path stay coherent as the space changes.</p>
+          <div className="hubbo-responsive-grid">
+            <HubboImage project={project} name="home.jpg" alt="HUBBO POS desktop experience" />
+            <HubboImage project={project} name="solutions.jpg" alt="HUBBO POS tablet experience" />
+            <HubboImage project={project} name="request-demo.jpg" alt="HUBBO POS mobile experience" />
+          </div>
+          <p className="hubbo-panel-note">Desktop: product proof and comparison · Tablet: stacked narrative · Mobile: essential message and a focused CTA.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-light">
+        <div className="hubbo-wrap hubbo-two-column hubbo-delivery">
+          <div>
+            <Eyebrow>06 / Lead generation &amp; delivery</Eyebrow>
+            <h2>Designed to carry intent all the way to a conversation.</h2>
+            <p className="hubbo-intro">The final experience combined an accessible product narrative with focused lead-generation moments, then moved through structured hand-off and design QA for implementation.</p>
+            <div className="hubbo-delivery-shot">
+              <HubboImage project={project} name="contact.jpg" alt="HUBBO POS contact and lead-generation page" />
+            </div>
+          </div>
+          <div className="hubbo-delivery-list">
+            {[
+              ["Research & strategy", "Product and competitor analysis, IA and a conversion-led content plan."],
+              ["Design & prototype", "High-fidelity responsive UI, detailed interaction states and developer-ready specifications."],
+              ["Implementation support", "Structured hand-off, deployment review and Design Quality Assurance documentation."],
+            ].map(([title, body], i) => (
+              <div className="hubbo-delivery-item" key={title}>
+                <Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow>
+                <div><h3>{title}</h3><p>{body}</p></div>
+              </div>
+            ))}
+            <p className="hubbo-scope">Scope: website redesign · responsive UI · content hierarchy · lead flow · hand-off · QA</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="hubbo-next-section">
+        <div className="hubbo-wrap">
+          <a href={`#/project/${next.slug}`} className="hubbo-next-link">
+            <Eyebrow>Next project</Eyebrow>
+            <span>{next.title}<Arrow /></span>
+          </a>
+        </div>
+      </section>
+      <DarkCTA />
+    </article>
+  );
+}
+
 /* ---------- page ---------- */
 
 export function ProjectDetail({ slug }: { slug: string }) {
@@ -302,6 +478,10 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
   const idx = PROJECTS.indexOf(project as Project);
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
+
+  if (project.slug === "hubbo-pos") {
+    return <HubboCaseStudy project={project} next={next} />;
+  }
 
   return (
     <article>
