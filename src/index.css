@@ -415,6 +415,7 @@
   }
   .hubbo-panel {
     padding-block: clamp(72px, 9vw, 140px);
+    overflow: hidden;
   }
   .hubbo-panel-dark {
     background: var(--hubbo-espresso);
@@ -448,6 +449,11 @@
     grid-template-columns: minmax(0, 1fr);
     gap: 42px;
     align-items: center;
+  }
+  .hubbo-hero-grid > *,
+  .hubbo-two-column > *,
+  .hubbo-step-grid > * {
+    min-width: 0;
   }
   .hubbo-hero-grid { margin-top: 52px; }
   .hubbo-hero-grid h1,
@@ -542,10 +548,10 @@
   .hubbo-bullets li { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid rgba(255, 250, 240, 0.18); list-style: none; }
   .hubbo-bullets strong { color: var(--hubbo-amber); font-size: 13px; }
   .hubbo-bullets span { color: rgba(255, 250, 240, 0.68); font-size: 13px; line-height: 1.5; }
-  .hubbo-collage { position: relative; min-height: 430px; }
-  .hubbo-collage img { position: absolute; width: 82%; border: 8px solid var(--hubbo-amber); border-radius: 14px; background: #fff; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24); }
+  .hubbo-collage { position: relative; height: 430px; overflow: hidden; }
+  .hubbo-collage img { position: absolute; width: 82%; height: 285px; object-fit: cover; object-position: top; border: 8px solid var(--hubbo-amber); border-radius: 14px; background: #fff; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24); }
   .hubbo-collage img:first-child { top: 0; right: 0; }
-  .hubbo-collage img:last-child { bottom: 0; left: 0; width: 74%; }
+  .hubbo-collage img:last-child { bottom: 0; left: 0; width: 74%; height: 245px; }
   .hubbo-responsive-copy { max-width: 62ch; margin-top: 20px; }
   .hubbo-responsive-grid { display: grid; grid-template-columns: 1.3fr 1fr 0.55fr; gap: 16px; align-items: end; margin-top: 52px; }
   .hubbo-responsive-grid img { width: 100%; height: 300px; object-fit: cover; object-position: top; border: 5px solid #fff; border-radius: 12px; background: #fff; }
@@ -594,7 +600,9 @@
   .hubbo-card-grid,
   .hubbo-step-grid { grid-template-columns: 1fr; }
   .hubbo-step:not(:last-child)::after { right: auto; left: 50%; top: auto; bottom: -20px; transform: translateX(-50%) rotate(90deg); }
-  .hubbo-collage { min-height: 310px; margin-top: 18px; }
+  .hubbo-collage { height: 310px; margin-top: 18px; }
+  .hubbo-collage img { height: 205px; }
+  .hubbo-collage img:last-child { height: 175px; }
   .hubbo-responsive-grid { grid-template-columns: 1fr; }
   .hubbo-responsive-grid img,
   .hubbo-responsive-grid img:last-child { height: 240px; }
