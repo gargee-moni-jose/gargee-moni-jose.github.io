@@ -383,6 +383,140 @@ export const PROJECTS: Project[] = [
         "Extend the motion system into reusable patterns for event launches, fighter announcements and media moments so the website can evolve with every promotion.",
     },
   },
+  {
+    slug: "kutubuku",
+    title: "KutuBooku",
+    tags: ["Education", "Subscription", "Website"],
+    industry: "Education",
+    year: "2022",
+    img: imageUrl("kutubuku/home-page.jpg"),
+    alt: "KutuBooku children's book subscription website homepage with colourful illustrations and reading plans.",
+    summary:
+      "A warm, parent-friendly website for KutuBooku, a personalised book subscription service for children aged 0–8.",
+    role: "Designer",
+    timeline: "Jan 2022 – Mar 2022",
+    team: "KutuBooku stakeholders and implementation team",
+    platform: "Responsive marketing and subscription website",
+    problem:
+      "KutuBooku needed a clear digital home to explain personalised book boxes to parents, present subscription choices and turn interest into a confident purchase.",
+    context: [
+      "KutuBooku curates and sends book boxes around each child’s pace and interests, so the service needed to feel personal before a parent ever subscribed.",
+      "Parents needed to understand how the service works, what is inside a box and which plan fits their family without sorting through dense product copy.",
+      "The website had to balance playful storytelling with the practical details of pricing, account access, orders and checkout.",
+      "A responsive layout made the experience easy to explore across home, plan selection, purchase and account journeys.",
+    ],
+    research: [
+      {
+        title: "Audience and content review",
+        body: "Reviewed the needs of parents choosing books for children aged 0–8 and translated the service proposition into a simple, reassuring content hierarchy.",
+      },
+      {
+        title: "Subscription journey mapping",
+        body: "Mapped the path from understanding the service to choosing a plan, completing a purchase and returning to manage orders.",
+      },
+      {
+        title: "Plan and pricing structure",
+        body: "Structured plan details and benefits so parents could compare options quickly and make a decision with the relevant information in view.",
+      },
+      {
+        title: "Responsive page planning",
+        body: "Designed the public site and supporting account screens as one connected experience, from the homepage through checkout and orders.",
+      },
+    ],
+    insights: [
+      {
+        title: "Parents need reassurance before choice",
+        body: "Showing how the box is curated and what children gain from regular reading made the subscription feel more tangible than a plan list alone.",
+      },
+      {
+        title: "The plan needs a simple comparison",
+        body: "Pricing and benefits are easier to understand when the differences are visible together and the next action is clear.",
+      },
+      {
+        title: "Playfulness needs structure",
+        body: "Illustration and colour create warmth, while a consistent layout keeps the experience easy for busy parents to scan.",
+      },
+      {
+        title: "The relationship continues after checkout",
+        body: "Login and order views help the website support the subscription beyond the first purchase.",
+      },
+    ],
+    flow: [
+      "Understand KutuBooku",
+      "See how it works",
+      "Choose a plan",
+      "Complete purchase",
+      "Manage orders",
+    ],
+    ia: [
+      { level: "Primary navigation", items: ["Our plans", "How it works", "FAQs", "Join as illustrator"] },
+      { level: "Subscription path", items: ["Value proposition", "Plan comparison", "Checkout", "Confirmation"] },
+      { level: "Account path", items: ["Log in", "My orders", "Contact"] },
+    ],
+    wireframes: [
+      "Homepage and service story",
+      "How it works and plan selection",
+      "Complete purchase flow",
+      "Login and order management",
+      "Contact and illustrator enquiry",
+    ],
+    directions: [
+      {
+        name: "Direction 01 — Product catalogue",
+        body: "A plan-first structure that surfaced pricing quickly, but made the personal value of the subscription harder to feel.",
+      },
+      {
+        name: "Direction 02 — Story-first introduction",
+        body: "A more editorial homepage that led with the child’s reading journey, then introduced plans once the service felt familiar.",
+      },
+      {
+        name: "Final direction — Story, choice and continuity",
+        body: "A warm homepage narrative connected to clear plans, purchase and account screens so parents could move from discovery to an ongoing subscription.",
+      },
+    ],
+    system: [
+      { label: "Colour", value: "Soft teal · Sunshine yellow · Coral accents · Warm cream" },
+      { label: "Type", value: "Friendly rounded display hierarchy paired with clear utility copy" },
+      { label: "Content", value: "Book boxes · Plans · Benefits · FAQs · Orders · Illustrator collaboration" },
+      { label: "Layout", value: "Responsive marketing, subscription and account journeys" },
+      { label: "Tools", value: "Figma · Photoshop · Illustrator · Wix" },
+      { label: "Delivery", value: "Website UI · responsive screens · purchase flow · content structure" },
+    ],
+    uiScreens: [
+      "Home page",
+      "How it works — Step 1",
+      "How it works — Step 2",
+      "How it works — Step 3",
+      "Complete purchase",
+      "My orders",
+      "Contact page",
+      "Join as illustrator",
+      "Log in",
+    ],
+    uiImages: [
+      { src: imageUrl("kutubuku/home-page.jpg"), alt: "KutuBooku home page design" },
+      { src: imageUrl("kutubuku/step-1.jpg"), alt: "KutuBooku how it works step one design" },
+      { src: imageUrl("kutubuku/step-2.jpg"), alt: "KutuBooku how it works step two design" },
+      { src: imageUrl("kutubuku/step-3.jpg"), alt: "KutuBooku how it works step three design" },
+      { src: imageUrl("kutubuku/complete-purchase.jpg"), alt: "KutuBooku complete purchase design" },
+      { src: imageUrl("kutubuku/my-orders.jpg"), alt: "KutuBooku my orders design" },
+      { src: imageUrl("kutubuku/contact-page.jpg"), alt: "KutuBooku contact page design" },
+      { src: imageUrl("kutubuku/join-as-illustrator-form.jpg"), alt: "KutuBooku illustrator enquiry form design" },
+      { src: imageUrl("kutubuku/log-in.jpg"), alt: "KutuBooku login page design" },
+    ],
+    interaction:
+      "The interface keeps the subscription story warm and approachable, then makes plan selection, checkout and order management direct enough for repeat use.",
+    outcome:
+      "Designed a friendly KutuBooku website that explains personalised book subscriptions, clarifies plan choices and supports parents from first visit through ongoing orders.",
+    reflection: {
+      learned:
+        "A subscription service needs to sell the feeling of the ongoing relationship as clearly as the first transaction.",
+      improve:
+        "I would test plan comprehension with parents earlier and use that feedback to refine the comparison and checkout copy.",
+      next:
+        "Extend the experience into personalised account preferences so every future box feels even more connected to the child.",
+    },
+  },
 ];
 
 export const EXPERIENCE = [

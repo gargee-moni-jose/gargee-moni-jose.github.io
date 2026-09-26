@@ -418,6 +418,11 @@
     --hubbo-amber: #d8ff3f;
     --hubbo-cream: #f0f0ee;
   }
+  .kutubuku-case-study {
+    --hubbo-espresso: #145b5b;
+    --hubbo-amber: #ffbf35;
+    --hubbo-cream: #f4fbf8;
+  }
   .hubbo-panel {
     padding-block: clamp(72px, 9vw, 140px);
     overflow: hidden;

@@ -583,6 +583,130 @@ function MvpCaseStudy({ project, next }: { project: Project; next: Project }) {
   );
 }
 
+function KutuBookuCaseStudy({ project, next }: { project: Project; next: Project }) {
+  return (
+    <article className="hubbo-case-study kutubuku-case-study">
+      <section className="hubbo-panel hubbo-panel-dark hubbo-hero-panel">
+        <div className="hubbo-wrap">
+          <a href="#/projects" className="hubbo-back-link"><span className="arw rotate-180"><Arrow /></span>All projects</a>
+          <div className="hubbo-hero-grid">
+            <div>
+              <Eyebrow>01 / Website design</Eyebrow>
+              <h1>Making personalised reading feel easy to choose.</h1>
+              <p>
+                KutuBooku is a children&apos;s book subscription service that curates
+                personalised boxes for children aged 0–8. I designed a warm digital
+                experience that helps parents understand the service and choose a plan.
+              </p>
+              <div className="hubbo-meta">
+                <div><Eyebrow>Role</Eyebrow><strong>{project.role}</strong></div>
+                <div><Eyebrow>Timeline</Eyebrow><strong>{project.timeline}</strong></div>
+                <div className="hubbo-meta-wide"><Eyebrow>Scope</Eyebrow><strong>Website · Education · Book subscription</strong></div>
+              </div>
+            </div>
+            <div className="hubbo-hero-shot"><HubboImage project={project} name="home-page.jpg" alt="KutuBooku homepage" /></div>
+          </div>
+          <p className="hubbo-caption">A playful visual language introduces the service, while clear plans and account paths make the subscription practical for parents.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark">
+        <div className="hubbo-wrap hubbo-two-column">
+          <div>
+            <Eyebrow>02 / The choice problem</Eyebrow>
+            <h2>The website needed to turn a thoughtful service into a confident family decision.</h2>
+            <p className="hubbo-muted">KutuBooku had a strong promise, but parents needed to understand how the boxes worked, what they received and which plan suited them before they could commit.</p>
+            <div className="hubbo-card-grid">
+              {[
+                ["Explain the value", "Show how curated books support a child’s pace, interests and reading habits."],
+                ["Make plans clear", "Present pricing, benefits and differences together so parents can choose quickly."],
+                ["Support continuity", "Carry the relationship into checkout, login and order management."],
+              ].map(([title, body], i) => (
+                <div className="hubbo-light-card" key={title}><Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow><h3>{title}</h3><p>{body}</p></div>
+              ))}
+            </div>
+          </div>
+          <div className="hubbo-phone-shot"><HubboImage project={project} name="complete-purchase.jpg" alt="KutuBooku complete purchase screen" /></div>
+        </div>
+        <p className="hubbo-panel-note">Designed as one connected journey from discovering the service to choosing a box and returning to manage orders.</p>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-light">
+        <div className="hubbo-wrap">
+          <Eyebrow>03 / Understanding the experience</Eyebrow>
+          <h2>A reading journey that moves from curiosity to a subscription.</h2>
+          <p className="hubbo-intro">The content structure answers the questions parents have in order: what KutuBooku is, how it works, which plan fits and what happens after purchase.</p>
+          <div className="hubbo-step-grid">
+            {[
+              ["Discover", "See the service, its purpose and the child it is designed to support"],
+              ["Understand", "Follow the three-step box journey from curation to delivery"],
+              ["Choose", "Compare plans, pricing and benefits with confidence"],
+              ["Continue", "Complete the purchase and manage future orders"],
+            ].map(([title, body], i) => (
+              <div className="hubbo-step" key={title}><Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow><h3>{title}</h3><p>{body}</p></div>
+            ))}
+          </div>
+          <p className="hubbo-result">The result: a clearer story for first-time parents and a more useful service after the first box.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark">
+        <div className="hubbo-wrap hubbo-two-column hubbo-direction">
+          <div>
+            <Eyebrow>04 / Design direction</Eyebrow>
+            <h2>Playful, reassuring and easy to scan.</h2>
+            <p className="hubbo-muted">Soft colour, friendly illustration and generous spacing make the service feel welcoming, while consistent patterns keep practical decisions simple.</p>
+            <ul className="hubbo-bullets">
+              <li><strong>Warmth first</strong><span>Colour and illustration make the idea of a monthly book box feel personal.</span></li>
+              <li><strong>Proof through detail</strong><span>Real boxes, books and family moments show what the subscription delivers.</span></li>
+              <li><strong>Clarity at choice</strong><span>Plan comparison and calls to action stay direct even inside a playful system.</span></li>
+            </ul>
+          </div>
+          <div className="hubbo-collage"><HubboImage project={project} name="step-1.jpg" alt="KutuBooku how it works design" /><HubboImage project={project} name="step-2.jpg" alt="KutuBooku plan selection design" /></div>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-dark hubbo-responsive-panel">
+        <div className="hubbo-wrap">
+          <Eyebrow>05 / Responsive experience</Eyebrow>
+          <h2>One friendly service across every parent touchpoint.</h2>
+          <p className="hubbo-muted hubbo-responsive-copy">The hierarchy stays clear as the layout changes: the promise leads, the steps explain, and the plan or account action remains close at hand.</p>
+          <div className="hubbo-responsive-grid">
+            <HubboImage project={project} name="home-page.jpg" alt="KutuBooku desktop homepage" />
+            <HubboImage project={project} name="step-3.jpg" alt="KutuBooku tablet plan experience" />
+            <HubboImage project={project} name="my-orders.jpg" alt="KutuBooku mobile orders experience" />
+          </div>
+          <p className="hubbo-panel-note">Desktop: service story and proof · Tablet: structured plan choice · Mobile: essential message and account action.</p>
+        </div>
+      </section>
+
+      <section className="hubbo-panel hubbo-panel-light">
+        <div className="hubbo-wrap hubbo-two-column hubbo-delivery">
+          <div>
+            <Eyebrow>06 / Subscription &amp; delivery</Eyebrow>
+            <h2>Designed to turn a first visit into an ongoing reading habit.</h2>
+            <p className="hubbo-intro">The final experience combined a clear subscription story with plan selection, purchase, account access and order management.</p>
+            <div className="hubbo-delivery-shot"><HubboImage project={project} name="contact-page.jpg" alt="KutuBooku contact page design" /></div>
+          </div>
+          <div className="hubbo-delivery-list">
+            {[
+              ["Service story", "A parent-friendly explanation of personalised boxes, reading benefits and the KutuBooku promise."],
+              ["Plans & purchase", "Clear pricing, plan benefits and a direct purchase journey for choosing the right box."],
+              ["Ongoing relationship", "Login, order management and contact paths that support families after their first subscription."],
+            ].map(([title, body], i) => (
+              <div className="hubbo-delivery-item" key={title}><Eyebrow>{String(i + 1).padStart(2, "0")}</Eyebrow><div><h3>{title}</h3><p>{body}</p></div></div>
+            ))}
+            <p className="hubbo-scope">Scope: website design · subscription flow · responsive UI · plan comparison · account screens</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="hubbo-next-section"><div className="hubbo-wrap"><a href={`#/project/${next.slug}`} className="hubbo-next-link"><Eyebrow>Next project</Eyebrow><span>{next.title}<Arrow /></span></a></div></section>
+      <DarkCTA />
+    </article>
+  );
+}
+
 /* ---------- page ---------- */
 
 export function ProjectDetail({ slug }: { slug: string }) {
@@ -610,6 +734,9 @@ export function ProjectDetail({ slug }: { slug: string }) {
   }
   if (project.slug === "most-valuable-promotions") {
     return <MvpCaseStudy project={project} next={next} />;
+  }
+  if (project.slug === "kutubuku") {
+    return <KutuBookuCaseStudy project={project} next={next} />;
   }
 
   return (
