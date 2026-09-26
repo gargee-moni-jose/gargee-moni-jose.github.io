@@ -1,0 +1,77 @@
+/* Measurements follow the 1920px-wide supplied PDF. Images retain their original pixels. */
+.hubbo-pdf {
+  container-type: inline-size;
+  max-width: 1920px;
+  margin-inline: auto;
+  background: #fff;
+  color: #281504;
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+.hubbo-pdf > header, .hubbo-pdf > section { padding: 5cqw; }
+.hubbo-pdf h1, .hubbo-pdf h2, .hubbo-pdf h3, .hubbo-pdf p { margin: 0; }
+.hubbo-pdf h1, .hubbo-pdf h2, .hubbo-pdf h3 { font-weight: 700; }
+.hubbo-pdf h2 { font-size: 2.5cqw; line-height: 1.22; letter-spacing: -0.035em; }
+.hubbo-pdf h2 + p { margin-top: .45cqw; }
+.hubbo-pdf img { display: block; width: 100%; height: auto; }
+.hubbo-pdf .hp-cream { background: #faf8ef; }
+.hubbo-pdf .hp-dark { background: #301500; color: #faf8ef; }
+.hubbo-pdf .hp-hero { border-top: .8333cqw solid #ffba08; padding-top: 5cqw; }
+.hp-tags { display: flex; gap: .4167cqw; font-size: .8333cqw; margin-bottom: .65cqw; }
+.hp-tags span { border: 1px solid #e9e5df; border-radius: 100px; padding: .25cqw .625cqw; }
+.hubbo-pdf h1 { font-size: 4.5833cqw; line-height: 1.227; letter-spacing: -.055em; }
+.hubbo-pdf .hp-summary { max-width: 67.3cqw; margin-top: 1.5cqw; }
+.hp-meta { display: grid; grid-template-columns: 1fr 1.38fr 1.73fr; width: 67.3cqw; border-top: 1px solid #eedcbb; margin-top: 5cqw; padding-top: 1.667cqw; margin-bottom: 5cqw; }
+.hp-meta dt { color: #ed9e00; font-size: .8333cqw; margin-bottom: .5cqw; }
+.hp-meta dd { margin: 0; }
+.hp-focus { border-left: 2px solid #f9c773; margin: 5cqw 0 0 2.5cqw; padding-left: 2.917cqw; max-width: 55cqw; }
+.hp-focus strong { display: block; font-size: 1.1458cqw; margin-bottom: .625cqw; }
+.hp-challenge-item { padding-block: 4.1667cqw; border-bottom: 1px solid #eedcbb; }
+.hp-challenge-item:last-child { padding-bottom: 0; border: 0; }
+.hp-challenge-item > span { font-size: 1.302cqw; font-weight: 700; }
+.hubbo-pdf .hp-challenge-item h3 { font-size: 3.75cqw; line-height: 1.2; letter-spacing: -.05em; margin-top: .73cqw; margin-bottom: .625cqw; }
+.hp-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9375cqw 2cqw; max-width: 67cqw; margin: 1.25cqw 0 0; padding-left: 1.46cqw; list-style: disc; }
+.hp-list li::marker { color: #ffb800; }
+.hp-goal-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.04cqw; margin-top: 2.0833cqw; }
+.hp-goal-cards p { padding: 1.667cqw; border-radius: .8333cqw; background: #faf8ef; color: #281504; }
+.hp-goal img { margin-top: 4.1667cqw; }
+.hp-research-grid { display: grid; grid-template-columns: 712fr 1000fr; gap: .8333cqw; align-items: start; }
+.hp-research-grid p { margin-top: 1.04cqw !important; }
+.hp-callout { margin-top: 5cqw; border-left: 2px solid #f9c773; padding: 1.04cqw 0 1.04cqw 2.917cqw; max-width: 58cqw; line-height: 1.3; }
+.hp-media img { margin-top: 1.667cqw; }
+.hubbo-pdf .hp-ia { padding-bottom: 0; }
+.hp-campaign { display: grid; grid-template-columns: 1fr 1fr; gap: 1cqw; align-items: start; }
+.hp-campaign h2 { font-size: 2.4cqw; }
+.hp-campaign aside { margin-top: 2.5cqw; padding: 1.667cqw; background: #faf8ef; border-radius: .8333cqw; line-height: 1.3; }
+.hp-campaign aside strong { display: block; font-size: 1.1458cqw; margin-bottom: .8333cqw; }
+.hp-campaign aside p + p { margin-top: .417cqw; }
+.hp-responsive > p, .hp-qa > p { max-width: 40.5cqw; line-height: 1.3; }
+.hp-handoff .hp-list { margin-block: 1.667cqw; }
+.hp-handoff > p { max-width: 67.3cqw; line-height: 1.3; }
+.hubbo-pdf .hp-closing p { font-size: 3.3333cqw; line-height: 1.375; font-weight: 400; letter-spacing: -.04em; }
+@media (max-width: 767px) {
+  .hubbo-pdf { font-size: 16px; }
+  .hubbo-pdf > header, .hubbo-pdf > section { padding: 36px 20px; }
+  .hubbo-pdf h1 { font-size: clamp(34px, 7cqw, 54px); line-height: 1.12; }
+  .hp-desktop-break { display: none; }
+  .hubbo-pdf h2, .hp-campaign h2 { font-size: 25px; }
+  .hp-tags { font-size: 11px; gap: 6px; margin-bottom: 18px; }
+  .hp-tags span { padding: 4px 9px; }
+  .hubbo-pdf .hp-summary { max-width: none; margin-top: 20px; }
+  .hp-meta { width: 100%; grid-template-columns: 1fr; gap: 16px; margin-block: 28px; padding-top: 20px; }
+  .hp-meta dt { font-size: 11px; margin-bottom: 4px; }
+  .hp-focus, .hp-callout { max-width: none; margin: 28px 0 0; padding: 0 0 0 16px; }
+  .hp-focus strong, .hp-campaign aside strong { font-size: 15px; margin-bottom: 8px; }
+  .hp-challenge-item { padding-block: 30px; }
+  .hp-challenge-item > span { font-size: 13px; }
+  .hubbo-pdf .hp-challenge-item h3 { font-size: 29px; margin-block: 10px; }
+  .hp-list { max-width: none; grid-template-columns: 1fr; padding-left: 20px; gap: 10px; margin-top: 16px; }
+  .hp-goal-cards, .hp-research-grid, .hp-campaign { grid-template-columns: 1fr; gap: 20px; }
+  .hp-goal-cards { margin-top: 24px; }
+  .hp-goal-cards p, .hp-campaign aside { padding: 20px; border-radius: 8px; }
+  .hp-media img, .hp-goal img { margin-top: 22px; }
+  .hp-responsive > p, .hp-qa > p, .hp-handoff > p { max-width: none; margin-top: 10px !important; }
+  .hp-handoff .hp-list { margin-block: 20px; }
+  .hubbo-pdf .hp-closing p { font-size: 28px; line-height: 1.4; }
+}

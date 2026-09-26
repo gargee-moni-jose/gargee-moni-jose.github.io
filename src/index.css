@@ -576,61 +576,7 @@
   .hubbo-next-link { display: flex; align-items: end; justify-content: space-between; gap: 24px; border-top: 1px solid var(--color-border); padding-top: 28px; }
   .hubbo-next-link span { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(24px, 4vw, 44px); font-weight: 800; letter-spacing: -0.035em; }
 
-  /* HUBBO editorial case-study format */
-  .hubbo-reference-case-study {
-    --ref-paper: #faf8f0;
-    --ref-ink: #241308;
-    --ref-muted: #766b60;
-    --ref-rule: #e4ded2;
-    --ref-dark: #2a1205;
-    --ref-accent: #ffb915;
-    background: var(--ref-paper);
-    color: var(--ref-ink);
-  }
-  .hubbo-ref-shell { width: 100%; max-width: 1180px; margin-inline: auto; padding-inline: var(--pad-mobile); }
-  .hubbo-ref-hero { border-top: 5px solid var(--ref-accent); padding-block: 42px 80px; }
-  .hubbo-ref-back { display: inline-flex; align-items: center; gap: 8px; color: var(--ref-muted); font-size: 13px; font-weight: 600; }
-  .hubbo-ref-back .arw { transition: transform var(--dur) var(--ease); }
-  .hubbo-ref-back:hover .arw { transform: translateX(-5px) rotate(180deg); }
-  .hubbo-ref-kicker { display: flex; align-items: center; gap: 16px; margin-top: 48px; color: var(--ref-muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
-  .hubbo-ref-kicker .eyebrow { color: #9b6f16; }
-  .hubbo-ref-hero-grid { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: clamp(34px, 6vw, 88px); align-items: center; margin-top: 20px; }
-  .hubbo-ref-hero h1 { max-width: 650px; margin: 0; font-size: clamp(42px, 5.8vw, 78px); line-height: .98; letter-spacing: -.055em; font-weight: 800; }
-  .hubbo-ref-hero-grid > div:first-child > p { max-width: 56ch; margin-top: 24px; color: var(--ref-muted); font-size: 15px; line-height: 1.65; }
-  .hubbo-ref-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--ref-rule); }
-  .hubbo-ref-meta dt { color: #9b6f16; font-family: var(--font-mono); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
-  .hubbo-ref-meta dd { margin-top: 8px; font-size: 13px; line-height: 1.45; }
-  .hubbo-ref-overview-image { overflow: hidden; border-radius: 10px; background: #ffe6a3; box-shadow: 0 18px 50px rgba(72, 44, 9, .12); }
-  .hubbo-ref-overview-image img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
-  .hubbo-ref-section { padding-block: clamp(74px, 9vw, 132px); }
-  .hubbo-ref-light { background: var(--ref-paper); }
-  .hubbo-ref-dark { background: var(--ref-dark); color: #fff9ef; }
-  .hubbo-reference-case-study .hubbo-ref-dark .eyebrow { color: var(--ref-accent); }
-  .hubbo-ref-section > .hubbo-ref-shell > h2 { max-width: 880px; margin-top: 18px; font-size: clamp(30px, 4.4vw, 62px); line-height: 1.02; letter-spacing: -.045em; font-weight: 800; }
-  .hubbo-ref-challenges { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px; margin-top: 64px; }
-  .hubbo-ref-challenges article { padding-top: 18px; border-top: 1px solid var(--ref-rule); }
-  .hubbo-ref-number { display: block; color: #9b6f16; font-family: var(--font-mono); font-size: 11px; letter-spacing: .13em; }
-  .hubbo-ref-challenges h3 { max-width: 20ch; margin-top: 20px; font-size: clamp(19px, 2vw, 27px); line-height: 1.08; letter-spacing: -.03em; }
-  .hubbo-ref-challenges p { max-width: 34ch; margin-top: 14px; color: var(--ref-muted); font-size: 14px; line-height: 1.62; }
-  .hubbo-ref-goal-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 52px; }
-  .hubbo-ref-goal-cards div { min-height: 112px; display: flex; align-items: flex-end; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 20px; background: rgba(255,255,255,.06); }
-  .hubbo-ref-goal-cards strong { max-width: 22ch; font-size: 15px; line-height: 1.3; }
-  .hubbo-ref-wide-image { display: block; width: 100%; height: auto; margin-top: 46px; border-radius: 8px; }
-  .hubbo-ref-split > .hubbo-ref-shell { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 7vw, 100px); align-items: center; }
-  .hubbo-ref-split .hubbo-ref-copy h2 { margin-top: 18px; font-size: clamp(28px, 3.7vw, 52px); line-height: 1.03; letter-spacing: -.04em; }
-  .hubbo-ref-copy p, .hubbo-ref-lede { max-width: 59ch; margin-top: 18px; color: var(--ref-muted); font-size: 15px; line-height: 1.7; }
-  .hubbo-ref-split > .hubbo-ref-shell > img { width: 100%; border-radius: 8px; }
-  .hubbo-ref-media h2 { max-width: 800px; }
-  .hubbo-ref-campaign > .hubbo-ref-shell { align-items: start; }
-  .hubbo-ref-campaign > .hubbo-ref-shell > img { background: #ffe4a2; padding: 0; }
-  .hubbo-ref-delivery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 28px; }
-  .hubbo-ref-delivery-grid p { max-width: 58ch; color: var(--ref-muted); font-size: 14px; line-height: 1.65; }
-  .hubbo-ref-qa { padding-bottom: clamp(90px, 12vw, 170px); }
-  .hubbo-ref-closing { padding-block: clamp(86px, 12vw, 170px); background: var(--ref-dark); color: #fff9ef; }
-  .hubbo-ref-closing p { max-width: 900px; font-size: clamp(25px, 4vw, 56px); line-height: 1.08; letter-spacing: -.045em; font-weight: 700; }
-  .hubbo-ref-next { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-top: 90px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.25); }
-  .hubbo-ref-next .eyebrow { color: var(--ref-accent); }
-  .hubbo-ref-next span { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(23px, 3.6vw, 42px); font-weight: 800; letter-spacing: -.04em; }
+
 }
 
 /* ============================================================
@@ -648,7 +594,6 @@
     padding-inline: var(--pad-tablet);
   }
   .hubbo-wrap { padding-inline: var(--pad-tablet); }
-  .hubbo-ref-shell { padding-inline: var(--pad-tablet); }
   .hubbo-hero-grid,
   .hubbo-two-column { grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); gap: 64px; }
 }
@@ -661,7 +606,6 @@
     padding-inline: var(--pad-desktop);
   }
   .hubbo-wrap { padding-inline: var(--pad-desktop); }
-  .hubbo-ref-shell { padding-inline: var(--pad-desktop); }
 }
 
 @media (max-width: 767px) {
@@ -679,18 +623,7 @@
   .hubbo-hero-grid h1,
   .hubbo-two-column h2,
   .hubbo-panel-light h2 { font-size: clamp(36px, 11vw, 54px); }
-  .hubbo-ref-hero-grid,
-  .hubbo-ref-split > .hubbo-ref-shell { grid-template-columns: 1fr; }
-  .hubbo-ref-meta,
-  .hubbo-ref-challenges,
-  .hubbo-ref-goal-cards,
-  .hubbo-ref-delivery-grid { grid-template-columns: 1fr; }
-  .hubbo-ref-hero h1 { font-size: clamp(42px, 13vw, 64px); }
-  .hubbo-ref-overview-image { order: -1; }
-  .hubbo-ref-hero-grid > div:first-child { margin-top: 12px; }
-  .hubbo-ref-challenges { gap: 26px; margin-top: 42px; }
-  .hubbo-ref-goal-cards { margin-top: 38px; }
-  .hubbo-ref-next { align-items: start; flex-direction: column; }
+
 }
 
 /* ============================================================
