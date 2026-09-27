@@ -517,6 +517,67 @@ export const PROJECTS: Project[] = [
         "Extend the experience into personalised account preferences so every future box feels even more connected to the child.",
     },
   },
+  {
+    slug: "ai-ux-design-workflow",
+    title: "AI UX Design Workflow",
+    tags: ["Health Care", "AI", "Product"],
+    industry: "Health Care",
+    year: "2026",
+    img: imageUrl("ai-ux-workflow/hero.png"),
+    alt: "A medical caregiver reading with an older patient in a bright home setting.",
+    summary:
+      "Making complex medical-coding work easier to review through clearer quality signals, structured review workflows, and an AI-assisted design process.",
+    role: "Product Designer",
+    timeline: "Feature-level modernization",
+    team: "Medical coders, team leads, product and engineering",
+    platform: "Clinix medical-coding administration product",
+    problem:
+      "Clinix needed clearer agency-quality reporting and a structured review workspace inside an established, specialist medical-coding product.",
+    context: [
+      "Clinix was already an established operational product with familiar workflows and legacy component patterns.",
+      "The work covered an Agency Star Rating experience and a Review Form for medical-coding work.",
+      "Medical coding is specialised, evidence-heavy and high-stakes, so expert validation remained central throughout the process.",
+    ],
+    research: [
+      { title: "Domain understanding", body: "Combined the PRD, existing flows and conversations with medical coders and team leads." },
+      { title: "AI-assisted exploration", body: "Used Claude MCP and Codex to broaden early structures and interaction directions." },
+      { title: "Expert validation", body: "Medical coders and team leads validated terminology, review logic and exceptions." },
+    ],
+    insights: [
+      { title: "A rating needs context", body: "Users need to understand what changed, what contributes to a rating and where to look next." },
+      { title: "Review follows a sequence", body: "The workspace needed to support understanding, assessment, recommendation, rationale and progression." },
+      { title: "AI supports judgment", body: "AI accelerated comprehension and exploration while domain experts remained the source of truth." },
+    ],
+    flow: ["Build context", "Explore", "Validate", "Refine", "Handoff and QA"],
+    ia: [
+      { level: "Star Rating", items: ["Orient", "Explain", "Compare", "Investigate"] },
+      { level: "Review Form", items: ["Understand", "Assess", "Recommend", "Explain", "Progress"] },
+    ],
+    wireframes: ["Star Rating directions", "Review Form directions", "Approved interaction states"],
+    directions: [
+      { name: "Quality reporting", body: "A scan-friendly hierarchy connecting the headline rating to supporting measures and trends." },
+      { name: "Review workspace", body: "A structured flow that keeps work context, recommendations, rationale and status visible." },
+    ],
+    system: [
+      { label: "Product", value: "Clinix" },
+      { label: "Scope", value: "Agency Star Rating · Review Form" },
+      { label: "Tools", value: "Figma · Claude MCP · Codex · AI-assisted design QA" },
+    ],
+    uiScreens: ["Client Star Rating", "Review Form"],
+    uiImages: [
+      { src: imageUrl("ai-ux-workflow/client-star-rating-detail.png"), alt: "Client Star Rating dashboard" },
+      { src: imageUrl("ai-ux-workflow/review-form-detail.png"), alt: "Medical coding Review Form" },
+    ],
+    interaction:
+      "The designs use clear hierarchy, comparison views, distinct review lenses and explicit status treatment to support expert decisions.",
+    outcome:
+      "The workflow accelerated iteration and reduced repetitive QA effort while creating clearer agency-quality reporting and a more structured review workspace.",
+    reflection: {
+      learned: "AI can accelerate exploration, but expert users must validate specialised workflow decisions.",
+      improve: "I would retain formal before-and-after metrics to quantify workflow impact.",
+      next: "Continue modernising high-value Clinix workflows through bounded, reusable interaction patterns.",
+    },
+  },
 ];
 
 export const EXPERIENCE = [

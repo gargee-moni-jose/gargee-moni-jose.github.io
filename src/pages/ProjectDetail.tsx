@@ -1,4 +1,5 @@
 import { HubboCaseStudy } from "./HubboCaseStudy";
+import { AIUXCaseStudy } from "./AIUXCaseStudy";
 import { useRef, useState } from "react";
 import type { PointerEvent, ReactNode } from "react";
 import { PROJECTS, type Project } from "../data";
@@ -584,6 +585,9 @@ export function ProjectDetail({ slug }: { slug: string }) {
   }
   if (project.slug === "kutubuku") {
     return <KutuBookuCaseStudy project={project} next={next} />;
+  }
+  if (project.slug === "ai-ux-design-workflow") {
+    return <AIUXCaseStudy />;
   }
 
   return (
