@@ -121,7 +121,7 @@ export function AIUXCaseStudy() {
 
       <section className="aiw-outcome aiw-shell"><h2>Outcome</h2><p>I did not retain formal before-and-after product metrics, so I present the impact qualitatively.</p><ul><li>I explored more viable directions before committing to a design.</li><li>I was able to turn an unfamiliar, dense workflow into an explicit information hierarchy for expert review.</li><li>The design created a clearer way to read agency-quality ratings and navigate from a headline signal to the detail behind it.</li><li>The Review Form provided a more structured workspace for recommendations, rationale, and QA progression.</li><li>AI accelerated repetitive exploration, interaction specification, and QA comparison work, leaving more time for domain understanding and design judgment.</li></ul></section>
 
-      <section className="aiw-closing"><p>I would not claim a “10× improvement” without a recorded baseline. The credible outcome is that the workflow <strong>accelerated iteration and reduced repetitive QA effort.</strong></p></section>
+      <section className="aiw-closing"><p>I would not claim a “10× improvement” without a recorded<br className="aiw-closing-break" /> baseline. The credible outcome is that the workflow<br className="aiw-closing-break" /> <strong>accelerated iteration and reduced repetitive QA effort.</strong></p></section>
     </article>
   );
 }
