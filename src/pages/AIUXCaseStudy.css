@@ -62,7 +62,7 @@
 .aiw-step-grid article strong { display: block; margin-bottom: .55cqw; }
 .aiw-step-grid article p { font-size: 1cqw; line-height: 1.42; }
 .aiw-sequence { margin-top: 1.25cqw !important; font-weight: 700; }
-.aiw-analysis-block ul, .aiw-outcome ul { margin: 1cqw 0 0; padding-left: 1.6cqw; }
+.aiw-analysis-block ul, .aiw-outcome ul { margin: 1cqw 0 0; padding-left: 1.6cqw; list-style: disc; }
 .aiw-analysis-block li + li, .aiw-outcome li + li { margin-top: .55cqw; }
 .aiw-analysis-block li::marker, .aiw-outcome li::marker { color: var(--aiw-blue); }
 .aiw-review-intro { margin-top: 5.5cqw; padding-top: 4.5cqw; border-top: 1px solid #d9deed; }
