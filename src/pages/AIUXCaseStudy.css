@@ -69,14 +69,15 @@
 .aiw-problem-callout { margin-top: 2.8cqw; }
 
 .aiw-legacy { padding-block: 5.2cqw; }
-.aiw-workflow { padding-top: 4cqw; border-top: 1px solid var(--aiw-rule); }
-.aiw-workflow > h2, .aiw-workflow > p, .aiw-workflow-note { max-width: 61cqw; margin-inline: auto !important; }
+.aiw-workflow { padding-top: 5.6cqw; border-top: 1px solid var(--aiw-rule); }
+.aiw-workflow > h2, .aiw-workflow > p, .aiw-workflow-note { max-width: 59.3cqw; margin-inline: auto !important; }
+.aiw-workflow > h2 { font-size: 2.0833cqw; }
 .aiw-workflow > p { margin-top: .6cqw !important; }
-.aiw-workflow-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .85cqw; margin-top: 2.6cqw; }
-.aiw-workflow-grid article { min-height: 20cqw; padding: 1.35cqw; border: 1px solid #adb9f0; border-radius: .65cqw; background: #f5f3ff; }
-.aiw-workflow-grid h3 { margin-bottom: .7cqw; }
-.aiw-workflow-grid p { font-size: .94cqw; line-height: 1.45; }
-.aiw-workflow-note { margin-top: 2cqw !important; }
+.aiw-workflow-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.0417cqw; margin-top: 2.6cqw; }
+.aiw-workflow-grid article { min-height: 21cqw; padding: 1.3cqw; border: 1px solid #7d63ff; border-radius: .65cqw; background: #f5f3ff; }
+.aiw-workflow-grid h3 { margin-bottom: .55cqw; font-size: 1.0417cqw; letter-spacing: 0; }
+.aiw-workflow-grid p { font-size: .8333cqw; line-height: 1.5; letter-spacing: 0; }
+.aiw-workflow > .aiw-workflow-note { margin-top: 3cqw !important; }
 
 .aiw-outcome { padding-top: 3.5cqw; border-top: 1px solid var(--aiw-rule); }
 .aiw-outcome > h2, .aiw-outcome > p, .aiw-outcome > ul { max-width: 61cqw; margin-inline: auto; }
@@ -112,7 +113,10 @@
   .aiw-step-grid article p, .aiw-workflow-grid p { font-size: 14px; }
   .aiw-review-intro { margin-top: 48px; padding-top: 38px; }
   .aiw-workflow-grid { gap: 12px; margin-top: 28px; }
-  .aiw-workflow-note { margin-top: 22px !important; }
+  .aiw-workflow > h2 { font-size: 27px; }
+  .aiw-workflow-grid h3 { font-size: 20px; }
+  .aiw-workflow-grid p { font-size: 14px; }
+  .aiw-workflow > .aiw-workflow-note { margin-top: 28px !important; }
   .aiw-closing p { max-width: none; font-size: 28px; }
   .aiw-closing-break { display: none; }
 }

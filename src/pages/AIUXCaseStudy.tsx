@@ -31,10 +31,10 @@ const reviewSteps = [
 
 const workflowSteps = [
   ["Build context", "I combined the PRD, existing flows, and expert conversations into a working understanding of the task. I used AI to summarise notes, expose unanswered questions, and generate early structures to challenge with domain experts."],
-  ["Explore before committing", "For the Star Rating feature, I used a Claude MCP-enabled workflow to explore and critique visual directions. For the Review Form, I used Codex to generate several low-fidelity wireframe directions quickly."],
-  ["Keep human review at the centre", "I selected, combined, and refined directions based on product constraints and feedback. Medical coders and team leads remained the source of truth for specialised terms and edge cases."],
+  ["Explore before committing", "For the Star Rating feature, I used a Claude MCP-enabled workflow to explore and critique different visual directions. For the Review Form, I used Codex to generate several low-fidelity wireframe directions quickly. The purpose was breadth: more ways to discuss information hierarchy and workflow logic before committing to a polished screen."],
+  ["Keep human review at the centre", "I selected, combined, and refined directions based on product constraints and feedback. Medical coders and team leads remained the source of truth for specialised terms, review behaviour, and edge cases. AI was a comprehension and exploration aid—not a decision-maker for medical codes."],
   ["Make approved ideas tangible", "After a direction was agreed, I used AI to accelerate interaction exploration and make the concepts feel more real. This helped reveal questions earlier than a static happy-path screen."],
-  ["Improve handoff and design QA", "I used AI to clarify intended states, hierarchy, interactions, and exceptions, then accelerate visual and state-mismatch triage between the design and built feature."],
+  ["Improve handoff and design QA", "For handoff, I used AI to help turn approved decisions into clearer implementation context: intended states, hierarchy, interactions, and exceptions. After development, I used it to accelerate visual and state-mismatch triage between the design and the built feature."],
 ];
 
 export function AIUXCaseStudy() {
