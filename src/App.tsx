@@ -5,10 +5,18 @@ import { About } from "./pages/About";
 import { Resume } from "./pages/Resume";
 import { Contact } from "./pages/Contact";
 import { ProjectDetail } from "./pages/ProjectDetail";
+import { PasswordGate } from "./components/PasswordGate";
 
 function View({ route }: { route: string }) {
   if (route.startsWith("/project/")) {
-    return <ProjectDetail slug={route.replace("/project/", "")} />;
+    const slug = route.replace("/project/", "");
+    const project = <ProjectDetail slug={slug} />;
+
+    return slug === "hubbo-pos" ? (
+      <PasswordGate>{project}</PasswordGate>
+    ) : (
+      project
+    );
   }
   switch (route) {
     case "/projects":
