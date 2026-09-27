@@ -318,23 +318,62 @@
 
   .wordmark-item {
     display: flex;
-    width: 100px;
-    height: 52px;
-    flex: 0 0 100px;
+    width: 112px;
+    height: 56px;
+    flex: 0 0 112px;
     align-items: center;
     justify-content: center;
+    --wordmark-scale: 1;
   }
 
   .wordmark-image {
     display: block;
-    width: 88px;
-    height: 42px;
+    width: 96px;
+    height: 46px;
     object-fit: contain;
+    transform: scale(var(--wordmark-scale));
+    transform-origin: center;
     transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
   }
 
   .wordmark-image:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(var(--wordmark-scale));
+  }
+
+  .wordmark-item[data-logo="Cliniqon"] {
+    --wordmark-scale: 1.28;
+  }
+
+  .wordmark-item[data-logo="Vonnue"] {
+    --wordmark-scale: 1.08;
+  }
+
+  .wordmark-item[data-logo="The Village"] {
+    --wordmark-scale: 1.3;
+  }
+
+  .wordmark-item[data-logo="Kutubuku"] {
+    --wordmark-scale: 1.28;
+  }
+
+  .wordmark-item[data-logo="Grab"] {
+    --wordmark-scale: 0.92;
+  }
+
+  .wordmark-item[data-logo="HillBlooms"] {
+    --wordmark-scale: 1.42;
+  }
+
+  .wordmark-item[data-logo="MVP"] {
+    --wordmark-scale: 1.12;
+  }
+
+  .wordmark-item[data-logo="Pilar"] {
+    --wordmark-scale: 0.98;
+  }
+
+  .wordmark-item[data-logo="Hubbo POS"] {
+    --wordmark-scale: 1.05;
   }
 
   .project-gallery {

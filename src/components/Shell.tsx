@@ -181,7 +181,11 @@ export function Wordmarks({
             aria-hidden={isDuplicate}
           >
             {items.map(({ name, src }) => (
-              <span key={name} className="wordmark-item select-none">
+              <span
+                key={name}
+                className="wordmark-item select-none"
+                data-logo={name}
+              >
                 <img
                   src={src}
                   alt={isDuplicate ? "" : `${name} logo`}
