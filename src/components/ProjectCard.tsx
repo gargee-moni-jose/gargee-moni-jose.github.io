@@ -3,16 +3,10 @@ import type { Project } from "../data";
 
 const HOME_PROJECT_ORDER = ["hubbo-pos", "ai-ux-design-workflow", "saar"];
 
-export function ProjectCard({
-  project,
-  featured = false,
-}: {
-  project: Project;
-  featured?: boolean;
-}) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
     <a
-      className={`project-card group block${featured ? " home-project-card h-full" : ""}`}
+      className="project-card group block showcase-project-card h-full"
       href={`#/project/${project.slug}`}
       aria-label={`${project.title} — view case study`}
     >
@@ -24,19 +18,15 @@ export function ProjectCard({
           <h3 className="card-title text-[17px] font-medium leading-snug tracking-[-0.015em] md:text-[18px]">
             {project.title}
           </h3>
-          {featured && (
-            <span className="project-card-arrow" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3.25 8h9.5m-4-4 4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          )}
+          <span className="project-card-arrow" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3.25 8h9.5m-4-4 4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
-        {featured && (
-          <p className="home-project-summary mt-2 text-[13px] leading-[1.6] text-[var(--color-secondary)]">
-            {project.summary}
-          </p>
-        )}
+        <p className="project-card-summary mt-2 text-[13px] leading-[1.6] text-[var(--color-secondary)]">
+          {project.summary}
+        </p>
         <div className="project-card-tags flex flex-wrap gap-2">
           {project.tags.map((t) => (
             <span className="pill" key={t}>
@@ -93,7 +83,7 @@ export function ProjectGrid({
 
   return (
     <div
-      className={`project-grid grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3${variant === "home" ? " home-project-grid" : ""}`}
+      className="project-grid project-card-grid grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3"
       ref={ref}
     >
       {orderedProjects.map((p, i) => (
@@ -102,10 +92,7 @@ export function ProjectGrid({
           key={p.slug}
           style={{ transitionDelay: `${i * 60}ms` }}
         >
-          <ProjectCard
-            project={p}
-            featured={variant === "home"}
-          />
+          <ProjectCard project={p} />
         </div>
       ))}
     </div>
