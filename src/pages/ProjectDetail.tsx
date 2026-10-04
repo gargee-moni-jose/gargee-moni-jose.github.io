@@ -4,7 +4,7 @@ import { SaarCaseStudy } from "./SaarCaseStudy";
 import { KutuBookuCaseStudy } from "./KutubukuCaseStudy";
 import { useRef, useState } from "react";
 import type { PointerEvent, ReactNode } from "react";
-import { PROJECTS, type Project } from "../data";
+import { PROJECTS, VISIBLE_PROJECTS, type Project } from "../data";
 import { Arrow, DarkCTA } from "../components/Shell";
 
 /* ---------- small building blocks ---------- */
@@ -452,8 +452,10 @@ export function ProjectDetail({ slug }: { slug: string }) {
     );
   }
 
-  const idx = PROJECTS.indexOf(project as Project);
-  const next = PROJECTS[(idx + 1) % PROJECTS.length];
+  const idx = VISIBLE_PROJECTS.indexOf(project as Project);
+  const next = idx === -1
+    ? VISIBLE_PROJECTS[0]
+    : VISIBLE_PROJECTS[(idx + 1) % VISIBLE_PROJECTS.length];
 
   if (project.slug === "hubbo-pos") {
     return <HubboCaseStudy />;

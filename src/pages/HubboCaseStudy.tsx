@@ -8,7 +8,7 @@ export function HubboCaseStudy() {
   return (
     <article className="hubbo-pdf">
       <header className="hp-hero">
-        <div className="hp-tags"><span>F&amp;B</span><span>Website Redesign</span></div>
+        <div className="hp-tags"><span>F&amp;B</span><span>Website Design</span></div>
         <h1>Making a complex POS product<br className="hp-desktop-break" /> easier to understand and act on<br className="hp-desktop-break" /> for lead generation</h1>
         <p className="hp-summary">HUBBO POS is an all-in-one point-of-sale platform for F&amp;B businesses across Southeast Asia. I led the redesign of its marketing website to make the product clearer, easier to explore and more conversion-focused.</p>
         <dl className="hp-meta"><div><dt>ROLE</dt><dd>Design Lead &amp; PoC</dd></div><div><dt>Client</dt><dd>HUBBO POS, South-East Asia</dd></div><div><dt>Year</dt><dd>2024</dd></div></dl>

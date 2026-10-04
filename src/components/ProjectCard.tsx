@@ -1,21 +1,41 @@
 import { useEffect, useRef } from "react";
 import type { Project } from "../data";
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  featured = false,
+}: {
+  project: Project;
+  featured?: boolean;
+}) {
   return (
     <a
-      className="project-card group block"
+      className={`project-card group block${featured ? " home-project-card h-full" : ""}`}
       href={`#/project/${project.slug}`}
       aria-label={`${project.title} — view case study`}
     >
       <div className={`card-media${project.thumbnail ? " card-media-thumbnail" : ""}`}>
         <img src={project.thumbnail ?? project.img} alt={project.thumbnailAlt ?? project.alt} loading="lazy" />
       </div>
-      <div className="mt-5">
-        <h3 className="card-title text-[17px] font-medium leading-snug tracking-[-0.015em] md:text-[18px]">
-          {project.title}
-        </h3>
-        <div className="mt-3 flex flex-wrap gap-2">
+      <div className="project-card-copy">
+        <div className="project-card-heading flex items-center justify-between gap-4">
+          <h3 className="card-title text-[17px] font-medium leading-snug tracking-[-0.015em] md:text-[18px]">
+            {project.title}
+          </h3>
+          {featured && (
+            <span className="project-card-arrow" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3.25 8h9.5m-4-4 4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          )}
+        </div>
+        {featured && (
+          <p className="home-project-summary mt-2 text-[13px] leading-[1.6] text-[var(--color-secondary)]">
+            {project.summary}
+          </p>
+        )}
+        <div className="project-card-tags flex flex-wrap gap-2">
           {project.tags.map((t) => (
             <span className="pill" key={t}>
               {t}
@@ -27,7 +47,13 @@ export function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export function ProjectGrid({ projects }: { projects: Project[] }) {
+export function ProjectGrid({
+  projects,
+  variant = "default",
+}: {
+  projects: Project[];
+  variant?: "default" | "home";
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   // Grids re-mount when filtered or sorted, so they observe their own nodes.
@@ -57,10 +83,27 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
   }, [projects]);
 
   return (
-    <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2" ref={ref}>
+    <div
+      className={`project-grid grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3${variant === "home" ? " home-project-grid" : ""}`}
+      ref={ref}
+    >
       {projects.map((p, i) => (
-        <div data-reveal key={p.slug} style={{ transitionDelay: `${i * 60}ms` }}>
-          <ProjectCard project={p} />
+        <div
+          className={
+            projects.length > 1 &&
+            projects.length % 2 === 1 &&
+            i === projects.length - 1
+              ? "project-grid-last-centered"
+              : undefined
+          }
+          data-reveal
+          key={p.slug}
+          style={{ transitionDelay: `${i * 60}ms` }}
+        >
+          <ProjectCard
+            project={p}
+            featured={variant === "home"}
+          />
         </div>
       ))}
     </div>

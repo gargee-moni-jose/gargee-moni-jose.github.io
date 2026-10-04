@@ -3,16 +3,20 @@
 // Pages repository subpath.
 const imageUrl = (name: string) => `${import.meta.env.BASE_URL}images/${name}`;
 
-const portraitImg = imageUrl("portrait.jpg");
+const portraitImg = imageUrl("Gargee-Profile.png");
 const logoUrl = (name: string) => `${import.meta.env.BASE_URL}logos/${name}`;
 
 export const PORTRAIT = portraitImg;
 
 export const LINKS = {
   email: "hello@gargeemonijose.com",
+  resumeEmail: "gargeejose@gmail.com",
+  phone: "+91 8547797308",
+  location: "Kochi, India",
   linkedin: "https://www.linkedin.com/in/gargee-moni-jose",
   behance: "https://www.behance.net/gargeemonijose",
-  cv: `${import.meta.env.BASE_URL}documents/Gargee_Moni_Jose_Senior_UIUX_Designer.pdf`,
+  portfolio: `${import.meta.env.BASE_URL}`,
+  cv: `${import.meta.env.BASE_URL}documents/Gargee_Moni_Jose_Maity_Infrastructure_Senior_Product_Designer.pdf`,
 };
 
 export const CLIENTS = [
@@ -624,6 +628,14 @@ export const PROJECTS: Project[] = [
     },
   },
 ];
+
+// Keep these case studies and their routes available while hiding their cards
+// from the homepage, Projects page, and its industry filters.
+const HIDDEN_PROJECT_SLUGS = new Set(["kutubuku", "most-valuable-promotions"]);
+
+export const VISIBLE_PROJECTS = PROJECTS.filter(
+  (project) => !HIDDEN_PROJECT_SLUGS.has(project.slug)
+);
 
 export const EXPERIENCE = [
   {

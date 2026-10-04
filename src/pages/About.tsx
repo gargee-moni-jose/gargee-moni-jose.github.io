@@ -1,4 +1,3 @@
-import { CAPABILITIES, EXPERIENCE, PORTRAIT, TOOLS } from "../data";
 import { Arrow, DarkCTA } from "../components/Shell";
 
 export function About() {
@@ -14,13 +13,12 @@ export function About() {
         <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5" data-reveal>
             <img
-              src={PORTRAIT}
+              src={`${import.meta.env.BASE_URL}images/Gargee-Profile.png`}
               alt="Portrait of Gargee Moni Jose against a crimson studio backdrop."
-              width={720}
-              height={900}
+              width={1666}
+              height={1699}
               className="w-full rounded-[12px] object-cover object-top"
             />
-            <p className="eyebrow mt-4">Gargee Moni Jose — Product Designer</p>
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7" data-reveal>
@@ -56,7 +54,7 @@ export function About() {
                 View projects <Arrow />
               </a>
               <a href="#/resume" className="btn btn-ghost">
-                Read résumé
+                Read resume
               </a>
             </div>
           </div>
@@ -110,88 +108,6 @@ export function About() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- EXPERIENCE ---------- */}
-      <section className="section wrap border-t border-[var(--color-border)]">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4" data-reveal>
-            <h2 className="h2 text-[clamp(30px,3.4vw,44px)]">Experience</h2>
-            <p className="mt-4 max-w-[34ch] text-[14.5px] leading-[1.6] text-[var(--color-secondary)]">
-              Roles held, in sequence. Full detail lives on the résumé page.
-            </p>
-          </div>
-
-          <div className="lg:col-span-7 lg:col-start-6">
-            {EXPERIENCE.map((job) => (
-              <article
-                key={job.company}
-                className="border-t border-[var(--color-border)] py-8 first:border-t-0 first:pt-0"
-                data-reveal
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                  <span className="eyebrow">{job.period}</span>
-                  <span className="text-[13px] text-[var(--color-muted)]">
-                    {job.role}
-                  </span>
-                </div>
-                <h3 className="mt-3 text-[24px] font-extrabold tracking-[-0.03em]">
-                  {job.company}
-                </h3>
-                <p className="mt-2 max-w-[58ch] text-[15px] leading-[1.65] text-[var(--color-secondary)]">
-                  {job.description}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {job.contributions.map((c) => (
-                    <li
-                      key={c}
-                      className="flex gap-3 text-[14.5px] text-[var(--color-secondary)]"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-[9px] h-px w-4 shrink-0 bg-[var(--color-ghost)]"
-                      />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- CAPABILITIES / TOOLS ---------- */}
-      <section className="section wrap border-t border-[var(--color-border)]">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-          <div data-reveal>
-            <p className="eyebrow">Capabilities</p>
-            <ul className="mt-6">
-              {CAPABILITIES.map((c) => (
-                <li
-                  key={c}
-                  className="border-t border-[var(--color-border)] py-3 text-[16px] last:border-b"
-                >
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div data-reveal>
-            <p className="eyebrow">Tools</p>
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {TOOLS.map((t) => (
-                <li key={t} className="pill h-[30px] px-4 text-[13px]">
-                  {t}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-10 max-w-[46ch] text-[15px] leading-[1.7] text-[var(--color-secondary)]">
-              Outside of client work I read editorial design closely — catalogue
-              typography is where most of my layout instincts come from.
-            </p>
           </div>
         </div>
       </section>

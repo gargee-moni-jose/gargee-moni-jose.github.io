@@ -1,6 +1,6 @@
-import { CLIENTS, EXPERTISE, PORTRAIT, PROJECTS } from "../data";
+import { CLIENTS, EXPERTISE, PORTRAIT, VISIBLE_PROJECTS } from "../data";
 import { ProjectGrid } from "../components/ProjectCard";
-import { Arrow, DarkCTA, Wordmarks } from "../components/Shell";
+import { DarkCTA, Wordmarks } from "../components/Shell";
 
 const ICONS = [
   // cursor / product thinking
@@ -40,8 +40,8 @@ export function Home() {
           <img
             src={PORTRAIT}
             alt="Gargee Moni Jose, product designer, photographed against a crimson studio backdrop."
-            width={440}
-            height={440}
+            width={1666}
+            height={1699}
             className="h-[220px] w-[220px] rounded-[12px] object-cover object-top md:h-[248px] md:w-[248px]"
           />
           <p className="max-w-[380px] text-[15px] leading-[1.6] text-[var(--color-secondary)] sm:text-right">
@@ -74,14 +74,9 @@ export function Home() {
         </div>
 
         <div className="mt-14 md:mt-16">
-          <ProjectGrid projects={PROJECTS} />
+          <ProjectGrid projects={VISIBLE_PROJECTS} variant="home" />
         </div>
 
-        <div className="mt-14 flex justify-center" data-reveal>
-          <a href="#/projects" className="btn btn-ghost">
-            View all projects <Arrow />
-          </a>
-        </div>
       </section>
 
       {/* ---------- EXPERTISE ---------- */}

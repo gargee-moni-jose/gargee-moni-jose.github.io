@@ -77,7 +77,6 @@ const NAV = [
   { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export function Nav({ route }: { route: string }) {
@@ -276,7 +275,7 @@ export function BottomBar() {
   return (
     <footer className="border-t border-[var(--color-border)] bg-white">
       <div className="wrap">
-        <div className="flex flex-col items-center gap-2 py-5 text-[12.5px] text-[var(--color-secondary)] sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-1 py-3 text-[12px] text-[var(--color-secondary)] sm:flex-row sm:justify-between">
           <span className="font-semibold text-[var(--color-ink)]">
             Gargee Moni Jose
           </span>

@@ -1,9 +1,52 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CLIENTS, PROJECTS } from "../data";
+import { CLIENTS, VISIBLE_PROJECTS } from "../data";
 import { ProjectGrid } from "../components/ProjectCard";
 import { DarkCTA, Wordmarks } from "../components/Shell";
 
 type DropdownOption = { value: string; label: string };
+
+const SERVICES = [
+  "SaaS Website",
+  "Websites",
+  "Booking Websites",
+  "Knowledge Base",
+  "Mobile App",
+  "Dashboard",
+  "Customization Platform",
+  "AI Platform",
+  "UX Audit",
+  "Logos",
+  "Research",
+  "Pitch Decks",
+  "Interaction Designs",
+  "Motion Design",
+];
+
+const DOMAINS = [
+  "F&B",
+  "Ed-Tech",
+  "Software",
+  "Entertainment",
+  "Property Management",
+  "Automotive",
+  "Motivational",
+  "Healthcare",
+  "CRM",
+  "HR",
+];
+
+function ExpertiseGroup({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="expertise-group">
+      <h2 className="expertise-title">{title}</h2>
+      <ul className="expertise-chips" aria-label={title}>
+        {items.map((item) => (
+          <li className="expertise-chip" key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function FilterDropdown({
   label,
@@ -109,12 +152,12 @@ export function Projects() {
   const [industry, setIndustry] = useState("all");
 
   const industries = useMemo(
-    () => Array.from(new Set(PROJECTS.map((p) => p.industry))),
+    () => Array.from(new Set(VISIBLE_PROJECTS.map((p) => p.industry))),
     []
   );
 
   const list = useMemo(() => {
-    let out = PROJECTS.filter(
+    let out = VISIBLE_PROJECTS.filter(
       (p) => industry === "all" || p.industry === industry
     );
     out = [...out].sort((a, b) =>
@@ -138,6 +181,11 @@ export function Projects() {
         <div className="mt-12 md:mt-16">
           <Wordmarks items={CLIENTS} />
         </div>
+      </section>
+
+      <section className="wrap expertise-section" aria-label="Services and domains">
+        <ExpertiseGroup title="Service" items={SERVICES} />
+        <ExpertiseGroup title="Domains" items={DOMAINS} />
       </section>
 
       <section className="section wrap" id="work">
