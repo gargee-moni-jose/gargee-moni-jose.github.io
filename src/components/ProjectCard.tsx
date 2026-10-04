@@ -84,18 +84,11 @@ export function ProjectGrid({
 
   return (
     <div
-      className={`project-grid grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3${variant === "home" ? " home-project-grid" : ""}`}
+      className={`project-grid grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3${variant === "home" ? " home-project-grid" : ""}`}
       ref={ref}
     >
       {projects.map((p, i) => (
         <div
-          className={
-            projects.length > 1 &&
-            projects.length % 2 === 1 &&
-            i === projects.length - 1
-              ? "project-grid-last-centered"
-              : undefined
-          }
           data-reveal
           key={p.slug}
           style={{ transitionDelay: `${i * 60}ms` }}

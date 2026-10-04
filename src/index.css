@@ -765,12 +765,6 @@
   row-gap: clamp(48px, 6vw, 80px);
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
-  .project-grid > .project-grid-last-centered {
-    grid-column: 2;
-  }
-}
-
 .expertise-section {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
