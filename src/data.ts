@@ -633,9 +633,15 @@ export const PROJECTS: Project[] = [
 // from the homepage, Projects page, and its industry filters.
 const HIDDEN_PROJECT_SLUGS = new Set(["kutubuku", "most-valuable-promotions"]);
 
+const PROJECT_DISPLAY_ORDER = ["hubbo-pos", "ai-ux-design-workflow", "saar"];
+
 export const VISIBLE_PROJECTS = PROJECTS.filter(
   (project) => !HIDDEN_PROJECT_SLUGS.has(project.slug)
-);
+).sort((a, b) => {
+  const aOrder = PROJECT_DISPLAY_ORDER.indexOf(a.slug);
+  const bOrder = PROJECT_DISPLAY_ORDER.indexOf(b.slug);
+  return (aOrder === -1 ? Infinity : aOrder) - (bOrder === -1 ? Infinity : bOrder);
+});
 
 export const EXPERIENCE = [
   {
