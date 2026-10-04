@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import type { Project } from "../data";
 
+const HOME_PROJECT_ORDER = ["hubbo-pos", "ai-ux-design-workflow", "saar"];
+
 export function ProjectCard({
   project,
   featured = false,
@@ -55,6 +57,13 @@ export function ProjectGrid({
   variant?: "default" | "home";
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const orderedProjects = variant === "home"
+    ? [...projects].sort((a, b) => {
+        const aOrder = HOME_PROJECT_ORDER.indexOf(a.slug);
+        const bOrder = HOME_PROJECT_ORDER.indexOf(b.slug);
+        return (aOrder === -1 ? Infinity : aOrder) - (bOrder === -1 ? Infinity : bOrder);
+      })
+    : projects;
 
   // Grids re-mount when filtered or sorted, so they observe their own nodes.
   useEffect(() => {
@@ -87,7 +96,7 @@ export function ProjectGrid({
       className={`project-grid grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3${variant === "home" ? " home-project-grid" : ""}`}
       ref={ref}
     >
-      {projects.map((p, i) => (
+      {orderedProjects.map((p, i) => (
         <div
           data-reveal
           key={p.slug}
