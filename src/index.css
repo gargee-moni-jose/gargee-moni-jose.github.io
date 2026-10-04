@@ -764,6 +764,9 @@
   column-gap: clamp(24px, 4vw, 48px);
   row-gap: clamp(48px, 6vw, 80px);
 }
+.about-display {
+  font-size: clamp(40px, 6.7vw, 90px);
+}
 
 .expertise-section {
   display: grid;

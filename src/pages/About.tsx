@@ -5,7 +5,7 @@ export function About() {
     <>
       <section className="wrap pt-14 md:pt-20">
         <p className="eyebrow">About</p>
-        <h1 className="display mt-6">
+        <h1 className="display about-display mt-6">
           <span className="strong">Product designer</span> focused on making
           complex products easier to understand, use, and scale.
         </h1>
