@@ -74,7 +74,7 @@ export function Arrow({ className = "arw" }: { className?: string }) {
 /* ---------------- navigation ---------------- */
 
 const NAV = [
-  { label: "Work", href: "/projects" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" },
@@ -122,7 +122,7 @@ export function Nav({ route }: { route: string }) {
               href="#/contact"
               className="btn btn-dark hidden h-[42px] min-h-0 px-[18px] text-[13.5px] md:inline-flex"
             >
-              Let&apos;s work together
+              Connect
               <span aria-hidden="true">▸</span>
             </a>
             <button
@@ -152,10 +152,10 @@ export function Nav({ route }: { route: string }) {
               </a>
             ))}
             <a
-              href={`mailto:${LINKS.email}`}
+              href="#/contact"
               className="btn btn-dark mt-4 w-full"
             >
-              Let&apos;s work together <span aria-hidden="true">▸</span>
+              Connect <span aria-hidden="true">▸</span>
             </a>
           </nav>
         </div>
@@ -261,6 +261,7 @@ export function DarkCTA() {
             <a
               className="text-[13.5px] text-white/80 hover:text-white"
               href={LINKS.cv}
+              download
             >
               Download CV
             </a>

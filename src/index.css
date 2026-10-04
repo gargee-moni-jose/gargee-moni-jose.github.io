@@ -274,6 +274,13 @@
     object-fit: cover;
     transition: transform 400ms var(--ease);
   }
+  .card-media-thumbnail {
+    aspect-ratio: 1126 / 634;
+    background: transparent;
+  }
+  .card-media-thumbnail img {
+    object-fit: contain;
+  }
   .project-card:hover .card-media img {
     transform: scale(1.03);
   }

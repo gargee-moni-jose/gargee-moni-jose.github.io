@@ -33,10 +33,9 @@ export function Resume() {
           </h1>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="text-[15px] leading-[1.7] text-[var(--color-secondary)]">
-              A web version of my CV, kept in the same type as the rest of the
-              portfolio. No progress bars, no percentages — just the work.
+              Explore my experience and skills, or download my résumé as a PDF.
             </p>
-            <a href={LINKS.cv} className="btn btn-dark mt-6">
+            <a href={LINKS.cv} download className="btn btn-dark mt-6">
               Download CV <Arrow />
             </a>
           </div>

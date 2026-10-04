@@ -34,6 +34,7 @@ function View({ route }: { route: string }) {
 
 const TITLES: Record<string, string> = {
   "/project/saar": "Saar — Gargee Moni Jose",
+  "/project/kutubuku": "KutuBooku — Gargee Moni Jose",
   "/": "Gargee Moni Jose — Product Designer / UI UX Designer",
   "/projects": "Projects — Gargee Moni Jose",
   "/about": "About — Gargee Moni Jose",

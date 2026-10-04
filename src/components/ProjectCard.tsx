@@ -8,8 +8,8 @@ export function ProjectCard({ project }: { project: Project }) {
       href={`#/project/${project.slug}`}
       aria-label={`${project.title} — view case study`}
     >
-      <div className="card-media">
-        <img src={project.img} alt={project.alt} loading="lazy" />
+      <div className={`card-media${project.thumbnail ? " card-media-thumbnail" : ""}`}>
+        <img src={project.thumbnail ?? project.img} alt={project.thumbnailAlt ?? project.alt} loading="lazy" />
       </div>
       <div className="mt-5">
         <h3 className="card-title text-[17px] font-medium leading-snug tracking-[-0.015em] md:text-[18px]">

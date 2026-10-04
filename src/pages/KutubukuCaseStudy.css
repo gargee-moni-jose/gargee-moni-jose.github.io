@@ -1,0 +1,77 @@
+.kutu-editorial { max-width: 1920px; margin-inline: auto; padding: 0 24px 72px; color: #181818; background: #fff; }
+.kutu-editorial h1, .kutu-editorial h2, .kutu-editorial p, .kutu-editorial figure, .kutu-editorial blockquote { margin: 0; }
+.kutu-intro { padding-top: 36px; }
+.kutu-back { display: inline-flex; gap: 10px; align-items: center; font-size: 13px; color: #666; }
+.kutu-back:hover { color: #181818; }
+.kutu-editorial h1 { font-size: clamp(44px, 4vw, 72px); line-height: 1.1; font-weight: 600; letter-spacing: -.05em; margin-top: 28px; }
+.kutu-editorial .kutu-summary { max-width: 850px; margin-top: 42px; font-size: 17px; line-height: 1.55; }
+.kutu-intro-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; margin-top: 16px; margin-bottom: 48px; }
+.kutu-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.kutu-tags span { padding: 3px 9px; background: #efefef; border-radius: 3px; font-size: 12px; }
+.kutu-about-toggle { display: inline-flex; align-items: center; gap: 18px; border: 0; padding: 10px 14px; border-radius: 3px; background: #eee; font-size: 14px; cursor: pointer; }
+.kutu-about-toggle:hover { background: #e2e2e2; }
+.kutu-about:not([hidden]) { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 80px; padding: 32px 0 48px; border-top: 1px solid #e5e5e5; }
+.kutu-about h2 { font-size: 28px; line-height: 1.3; letter-spacing: -.025em; font-weight: 500; }
+.kutu-about p { max-width: 780px; margin-top: 20px; font-size: 16px; line-height: 1.65; }
+.kutu-editorial dl { margin: 0; font-size: 14px; }
+.kutu-editorial dl > div + div { margin-top: 24px; }
+.kutu-editorial dt { margin-bottom: 4px; color: #737373; }
+.kutu-editorial dd { margin: 0; }
+.kutu-editorial .kutu-figure { min-width: 0; }
+.kutu-image-button { display: flex; align-items: center; justify-content: center; border: 0; border-radius: 0; padding: 0; width: 100%; cursor: zoom-in; overflow: hidden; }
+.kutu-image-button img { display: block; width: 100%; height: auto; }
+.kutu-figure figcaption { margin-top: 10px; font-size: 12px; line-height: 1.5; color: #717171; }
+.kutu-hero .kutu-image-button { height: clamp(350px, 52vw, 840px); padding: 48px 48px 0; background: #e8f2ee; align-items: start; }
+.kutu-home-window { width: min(60%, 720px); min-width: 330px; background: #fff; box-shadow: 0 12px 40px #163e3420; }
+.kutu-gallery-section { margin-top: 28px; }
+.kutu-image-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.kutu-image-pair .kutu-image-button { padding: 44px; min-height: 460px; background: #f1f2f0; }
+.kutu-image-pair img { max-width: 560px; box-shadow: 0 8px 32px #163e3410; }
+.kutu-onboarding .kutu-figure:first-child .kutu-image-button { background: #f7f2d9; }
+.kutu-onboarding .kutu-figure:last-child .kutu-image-button { background: #e8f2ee; }
+.kutu-checkout .kutu-image-button { min-height: 420px; background: #eef5f3; }
+.kutu-editorial blockquote { max-width: 980px; padding: 88px 48px; margin-inline: auto; text-align: center; font-size: clamp(28px, 3vw, 48px); line-height: 1.35; font-weight: 500; letter-spacing: -.035em; }
+.kutu-story { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 88px 48px; }
+.kutu-story h2 { font-size: clamp(30px, 3vw, 48px); font-weight: 500; line-height: 1.25; letter-spacing: -.04em; }
+.kutu-story p { max-width: 660px; font-size: 16px; line-height: 1.7; }
+.kutu-story p + p { margin-top: 20px; }
+.kutu-account .kutu-image-button { min-height: 420px; background: #f4f0e8; }
+.kutu-account .kutu-figure:last-child .kutu-image-button { background: #e8f2ee; }
+.kutu-support .kutu-image-button { background: #eef5f3; }
+.kutu-support .kutu-figure:last-child .kutu-image-button { min-height: 430px; background: #f7f2d9; }
+.kutu-project-notes { display: grid; grid-template-columns: 2fr 1fr; gap: 80px; padding: 88px 48px; }
+.kutu-project-notes h2 { font-size: 30px; line-height: 1.3; font-weight: 500; letter-spacing: -.03em; }
+.kutu-project-notes p { max-width: 680px; font-size: 17px; line-height: 1.65; margin-top: 20px; }
+.kutu-next { display: grid; grid-template-columns: 160px 1fr auto; gap: 24px; align-items: start; padding-top: 32px; border-top: 1px solid #ddd; }
+.kutu-next > span { font-size: 13px; color: #737373; }
+.kutu-next h2 { font-size: 28px; font-weight: 500; line-height: 1.3; letter-spacing: -.03em; }
+.kutu-next p { font-size: 15px; line-height: 1.6; max-width: 720px; margin-top: 12px; }
+.kutu-next > svg { width: 24px; height: 24px; }
+.kutu-dialog { position: fixed; inset: 0; margin: auto; width: min(900px, 94vw); max-height: 92dvh; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #181818; }
+.kutu-dialog::backdrop { background: #101d19cc; }
+.kutu-dialog-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 16px; }
+.kutu-dialog-bar h2 { font-size: 18px; font-weight: 600; }
+.kutu-dialog-bar button { background: #eee; border: 0; border-radius: 4px; padding: 8px 12px; font-size: 14px; cursor: pointer; }
+.kutu-dialog > img { width: min(100%, 600px); height: auto; margin-inline: auto; }
+.kutu-editorial button:focus-visible, .kutu-editorial a:focus-visible { outline: 3px solid #236557; outline-offset: 4px; }
+@media (max-width: 767px) {
+  .kutu-editorial { padding: 0 20px 40px; }
+  .kutu-intro { padding-top: 24px; }
+  .kutu-editorial h1 { margin-top: 24px; }
+  .kutu-editorial .kutu-summary { margin-top: 24px; font-size: 16px; }
+  .kutu-intro-bottom { margin-top: 20px; margin-bottom: 28px; }
+  .kutu-about:not([hidden]) { grid-template-columns: 1fr; gap: 28px; padding-block: 24px 32px; }
+  .kutu-about h2 { font-size: 24px; }
+  .kutu-hero .kutu-image-button { min-height: 300px; height: 370px; padding: 22px 20px 0; }
+  .kutu-home-window { width: 100%; min-width: 0; }
+  .kutu-image-pair { grid-template-columns: 1fr; gap: 24px; }
+  .kutu-image-pair .kutu-image-button { padding: 22px; min-height: 0; }
+  .kutu-support .kutu-figure:last-child .kutu-image-button { min-height: 0; }
+  .kutu-editorial blockquote { padding: 48px 8px; font-size: 28px; }
+  .kutu-story, .kutu-project-notes { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+  .kutu-story h2 { font-size: 32px; }
+  .kutu-next { grid-template-columns: 1fr auto; gap: 16px; }
+  .kutu-next > span { grid-column: 1 / -1; }
+  .kutu-next h2 { font-size: 26px; }
+  .kutu-dialog { padding: 12px; }
+}

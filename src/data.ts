@@ -12,7 +12,7 @@ export const LINKS = {
   email: "hello@gargeemonijose.com",
   linkedin: "https://www.linkedin.com/in/gargee-moni-jose",
   behance: "https://www.behance.net/gargeemonijose",
-  cv: "#/resume",
+  cv: `${import.meta.env.BASE_URL}documents/Gargee_Moni_Jose_Senior_UIUX_Designer.pdf`,
 };
 
 export const CLIENTS = [
@@ -38,6 +38,8 @@ export type Project = {
   year: string;
   img: string;
   alt: string;
+  thumbnail?: string;
+  thumbnailAlt?: string;
   summary: string;
   role: string;
   timeline: string;
@@ -62,6 +64,8 @@ export type Project = {
 export const PROJECTS: Project[] = [
   {
     slug: "saar",
+    thumbnail: imageUrl("thumbnails/saar.png"),
+    thumbnailAlt: "Saar financial dashboard presented on a dark background with a blue income overview and spending insights.",
     title: "Saar",
     tags: ["Personal Project", "Product Strategy", "UX/UI", "AI-assisted Build"],
     industry: "Fintech",
@@ -99,6 +103,8 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "hubbo-pos",
+    thumbnail: imageUrl("thumbnails/hubbo-pos.png"),
+    thumbnailAlt: "HUBBO POS thumbnail with a restaurant point-of-sale terminal, restaurant imagery and yellow wordmark on a brown background.",
     title: "HUBBO POS",
     tags: ["F&B", "POS Software", "Website"],
     industry: "F&B",
@@ -556,6 +562,8 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "ai-ux-design-workflow",
+    thumbnail: imageUrl("thumbnails/clinix.png"),
+    thumbnailAlt: "Clinix thumbnail combining a caregiver and older patient with the agency star-rating interface on a blue background.",
     title: "AI UX Design Workflow",
     tags: ["Health Care", "AI", "Product"],
     industry: "Health Care",

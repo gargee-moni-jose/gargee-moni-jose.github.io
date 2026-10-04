@@ -48,7 +48,7 @@ export function Contact() {
               <a href={`mailto:${LINKS.email}`} className="btn btn-light">
                 Send a Message <Arrow />
               </a>
-              <a href={LINKS.cv} className="btn btn-ghost border-white/25 bg-transparent text-white hover:border-white">
+              <a href={LINKS.cv} download className="btn btn-ghost border-white/25 bg-transparent text-white hover:border-white">
                 Download CV
               </a>
             </div>
