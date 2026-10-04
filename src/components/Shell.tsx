@@ -221,8 +221,8 @@ export function DarkCTA() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/12 py-5 sm:flex-row sm:items-center sm:justify-between">
-          <nav className="flex flex-wrap gap-5" aria-label="Footer">
+        <div className="flex flex-col gap-2 border-t border-white/12 py-2 sm:flex-row sm:items-center sm:justify-between">
+          <nav className="flex flex-wrap gap-x-5 gap-y-1 leading-5" aria-label="Footer">
             <a className="text-[13.5px] text-white/80 hover:text-white" href="#/">
               Home
             </a>
@@ -239,7 +239,7 @@ export function DarkCTA() {
               Projects
             </a>
           </nav>
-          <nav className="flex flex-wrap gap-5" aria-label="Social">
+          <nav className="flex flex-wrap gap-x-5 gap-y-1 leading-5" aria-label="Social">
             <a
               className="text-[13.5px] text-white/80 hover:text-white"
               href={LINKS.linkedin}
@@ -272,16 +272,16 @@ export function DarkCTA() {
 
 export function BottomBar() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-white">
+    <footer className="flex-none border-t border-[var(--color-border)] bg-white">
       <div className="wrap">
-        <div className="flex flex-col items-center gap-1 py-3 text-[12px] text-[var(--color-secondary)] sm:flex-row sm:justify-between">
-          <span className="font-semibold text-[var(--color-ink)]">
+        <div className="grid grid-cols-2 items-center gap-x-4 gap-y-1 py-2 text-[11px] leading-4 text-[var(--color-secondary)] sm:flex sm:min-h-[44px] sm:justify-between sm:gap-4 sm:py-2 sm:text-[12px]">
+          <span className="font-semibold text-[var(--color-ink)] sm:shrink-0">
             Gargee Moni Jose
           </span>
-          <span className="text-[var(--color-muted)]">
+          <span className="col-span-2 row-start-2 text-center text-[var(--color-muted)] sm:col-span-1 sm:row-auto">
             © gargeemonijose. All Rights Reserved
           </span>
-          <span className="text-[var(--color-ink)]">With patience</span>
+          <span className="text-right text-[var(--color-ink)] sm:shrink-0">With patience</span>
         </div>
       </div>
     </footer>
