@@ -33,6 +33,7 @@ function View({ route }: { route: string }) {
 }
 
 const TITLES: Record<string, string> = {
+  "/project/saar": "Saar — Gargee Moni Jose",
   "/": "Gargee Moni Jose — Product Designer / UI UX Designer",
   "/projects": "Projects — Gargee Moni Jose",
   "/about": "About — Gargee Moni Jose",
@@ -44,11 +45,9 @@ export default function App() {
   const route = useHashRoute();
   useReveal(route);
 
-  const key = route.startsWith("/project/")
-    ? "/project"
-    : TITLES[route]
+  const key = TITLES[route]
     ? route
-    : "/";
+    : route.startsWith("/project/") ? "/project" : "/";
   document.title =
     TITLES[key] ??
     "Case Study — Gargee Moni Jose";

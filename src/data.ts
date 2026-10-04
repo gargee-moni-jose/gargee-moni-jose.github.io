@@ -61,6 +61,43 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    slug: "saar",
+    title: "Saar",
+    tags: ["Personal Project", "Product Strategy", "UX/UI", "AI-assisted Build"],
+    industry: "Fintech",
+    // The supplied case study does not specify a project year.
+    year: "",
+    img: imageUrl("saar/home.jpg"),
+    alt: "Saar financial dashboard with a blue income overview, spending insights and recent transactions on a dark background.",
+    summary: "A personal financial intelligence product that automatically detects bank transactions, organizes spending, and turns financial activity into clear, explainable insights.",
+    role: "Product strategy, UX/UI and AI-assisted build",
+    timeline: "Personal project",
+    team: "Personal project",
+    platform: "Financial intelligence product",
+    problem: "People don't want to track every expense manually. The challenge is understanding what all their transactions mean.",
+    context: ["Bank transactions happen continuously across UPI, cards, transfers and recurring payments."],
+    research: [],
+    insights: [
+      { title: "Automatic first", body: "Manual entry remains available for exceptions rather than becoming the core workflow." },
+      { title: "Explain the number", body: "Move from data to meaning with insights supported by transactions." },
+      { title: "Make financial AI traceable", body: "Separate fact, calculation, inference and evidence." },
+      { title: "Let users correct the system", body: "Give users control over transaction categorization." },
+    ],
+    flow: ["Detect", "Organize", "Understand", "Act"],
+    ia: [],
+    wireframes: ["Mobile onboarding and financial overview", "Desktop onboarding and transaction management"],
+    directions: [],
+    system: [],
+    uiScreens: ["Financial overview", "Financial assistant", "Explainable insights", "Savings goals", "Data & privacy", "Transactions"],
+    interaction: "Inspect the transactions supporting an insight and correct the system's categorization.",
+    outcome: "An MVP focused on understanding spending without manual expense tracking.",
+    reflection: {
+      learned: "Financial insights need clear explanations and traceable evidence.",
+      improve: "Allow users to correct their transaction data.",
+      next: "Predictive features remain outside the MVP until the core transaction-understanding experience is established.",
+    },
+  },
+  {
     slug: "hubbo-pos",
     title: "HUBBO POS",
     tags: ["F&B", "POS Software", "Website"],
