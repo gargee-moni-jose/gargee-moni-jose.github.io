@@ -221,7 +221,7 @@ export function Projects() {
         <hr className="rule mt-6 mb-12" />
 
         {list.length > 0 ? (
-          <ProjectGrid projects={list} />
+          <ProjectGrid projects={list} variant="home" />
         ) : (
           <div className="border border-dashed border-[var(--color-border)] px-8 py-20 text-center">
             <p className="text-[15px] font-semibold">No projects in this industry</p>

@@ -108,7 +108,7 @@ export function Resume() {
             <h1 className="h1">
               Gargee Moni Jose
               <span className="mt-2 block text-[clamp(20px,2.2vw,28px)] font-[300] tracking-[-0.02em] text-[var(--color-secondary)]">
-                Senior Product Designer · UI/UX
+              Product Designer
               </span>
             </h1>
             <p className="mt-5 max-w-[65ch] text-[15px] leading-[1.7] text-[var(--color-secondary)]">
@@ -117,7 +117,7 @@ export function Resume() {
           </div>
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="text-[15px] leading-[1.7] text-[var(--color-secondary)]">
-              Download the résumé or get in touch.
+              Download the resume or get in touch.
             </p>
             <a href={LINKS.cv} download className="btn btn-dark mt-6">
               Download CV <Arrow />
@@ -125,7 +125,6 @@ export function Resume() {
             <ul className="mt-7 space-y-2 text-[14px] text-[var(--color-secondary)]">
               <li><a className="arrow-link" href={`mailto:${LINKS.email}`}>{LINKS.email}</a></li>
               <li><a className="arrow-link" href={`tel:${LINKS.phone}`}>{LINKS.phone}</a></li>
-              <li>{LINKS.location}</li>
               <li><a className="arrow-link" href={LINKS.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
             </ul>
           </div>
