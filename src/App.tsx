@@ -53,6 +53,8 @@ export default function App() {
     TITLES[key] ??
     "Case Study — Gargee Moni Jose";
 
+  const isContact = route === "/contact";
+
   return (
     <div className="flex min-h-screen flex-col">
       <a
@@ -64,10 +66,8 @@ export default function App() {
 
       <Nav route={route} />
 
-      <main id="main" className="flex flex-1 flex-col">
-        <div className="flex flex-1 flex-col">
-          <View route={route} />
-        </div>
+      <main id="main" className={isContact ? "flex flex-1 flex-col" : "flex-1"}>
+        <View route={route} />
       </main>
 
       <BottomBar />
