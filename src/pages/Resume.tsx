@@ -2,34 +2,6 @@ import type { ReactNode } from "react";
 import { LINKS } from "../data";
 import { DarkCTA } from "../components/Shell";
 
-function ContactIcon({ type }: { type: "email" | "phone" | "linkedin" }) {
-  if (type === "email") {
-    return (
-      <svg aria-hidden="true" className="size-4 shrink-0" viewBox="0 0 24 24" fill="none">
-        <path d="M3.5 6.5 12 13l8.5-6.5" stroke="#EA4335" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M3.5 7v10.5c0 .55.45 1 1 1h15c.55 0 1-.45 1-1V7" stroke="#4285F4" strokeWidth="2" strokeLinecap="round" />
-        <path d="m4 18 5.2-5" stroke="#FBBC04" strokeWidth="2" strokeLinecap="round" />
-        <path d="m20 18-5.2-5" stroke="#34A853" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (type === "phone") {
-    return (
-      <svg aria-hidden="true" className="size-4 shrink-0 text-[var(--color-secondary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M7 3.5h3l1.5 4-2 1.5a14 14 0 0 0 5.5 5.5l1.5-2 4 1.5v3c0 1.1-.9 2-2 2C10.5 21 3 13.5 3 5.5c0-1.1.9-2 2-2h2Z" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg aria-hidden="true" className="size-4 shrink-0" viewBox="0 0 24 24">
-      <rect x="2" y="2" width="20" height="20" rx="3" fill="#0A66C2" />
-      <path fill="#fff" d="M7 10h2.5v7H7zm1.25-3.5a1.45 1.45 0 1 1 0 2.9 1.45 1.45 0 0 1 0-2.9M11 10h2.4v1h.04c.34-.64 1.16-1.3 2.39-1.3 2.55 0 3.02 1.67 3.02 3.84V17h-2.5v-3.07c0-.73-.02-1.67-1.02-1.67s-1.18.8-1.18 1.62V17H11z" />
-    </svg>
-  );
-}
-
 function Block({
   label,
   children,
@@ -151,9 +123,9 @@ export function Resume() {
               Download
             </a>
             <ul className="mt-7 space-y-2 text-[14px] text-[var(--color-secondary)]">
-              <li><a className="arrow-link gap-2" href={`mailto:${LINKS.email}`}><ContactIcon type="email" />{LINKS.email}</a></li>
-              <li><a className="arrow-link gap-2" href={`tel:${LINKS.phone}`}><ContactIcon type="phone" />{LINKS.phone}</a></li>
-              <li><a className="arrow-link gap-2" href={LINKS.linkedin} target="_blank" rel="noreferrer noopener"><ContactIcon type="linkedin" />LinkedIn</a></li>
+              <li><a className="arrow-link" href={`mailto:${LINKS.email}`}>{LINKS.email}</a></li>
+              <li><a className="arrow-link" href={`tel:${LINKS.phone}`}>{LINKS.phone}</a></li>
+              <li><a className="arrow-link" href={LINKS.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
             </ul>
           </div>
         </div>
