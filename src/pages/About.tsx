@@ -3,7 +3,7 @@ import { Arrow, DarkCTA } from "../components/Shell";
 export function About() {
   return (
     <>
-      <section className="wrap pt-14 pb-16 md:pt-20 md:pb-20">
+      <section className="wrap pt-14 pb-24 md:pt-20 md:pb-28">
         <p className="eyebrow">About</p>
         <h1 className="display about-display mt-6">
           <span className="strong">Product designer</span> focused on making
