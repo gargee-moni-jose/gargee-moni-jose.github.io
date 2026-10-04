@@ -260,7 +260,7 @@ export function DarkCTA() {
             <a
               className="text-[13.5px] text-white/80 hover:text-white"
               href={LINKS.cv}
-              download
+              download="gargee_moni_jose_CV.pdf"
             >
               Download CV
             </a>

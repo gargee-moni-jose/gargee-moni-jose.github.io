@@ -119,7 +119,7 @@ export function Resume() {
             <p className="text-[15px] leading-[1.7] text-[var(--color-secondary)]">
               Download the resume or get in touch.
             </p>
-            <a href={LINKS.cv} download className="btn btn-dark mt-6">
+            <a href={LINKS.cv} download="gargee_moni_jose_CV.pdf" className="btn btn-dark mt-6">
               Download CV <Arrow />
             </a>
             <ul className="mt-7 space-y-2 text-[14px] text-[var(--color-secondary)]">

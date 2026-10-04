@@ -14,7 +14,7 @@ export const LINKS = {
   location: "Kochi, India",
   linkedin: "https://www.linkedin.com/in/gargee-moni-jose",
   behance: "https://www.behance.net/gargeemonijose014",
-  cv: `${import.meta.env.BASE_URL}documents/Gargee_Moni_Jose_Maity_Infrastructure_Senior_Product_Designer.pdf`,
+  cv: `${import.meta.env.BASE_URL}documents/gargee_moni_jose_CV.pdf`,
 };
 
 export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(LINKS.email)}`;

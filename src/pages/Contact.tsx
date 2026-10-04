@@ -48,7 +48,7 @@ export function Contact() {
               <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer noopener" className="btn btn-light">
                 Send a Message <Arrow />
               </a>
-              <a href={LINKS.cv} download className="btn btn-ghost border-white/25 bg-transparent text-white hover:border-white">
+              <a href={LINKS.cv} download="gargee_moni_jose_CV.pdf" className="btn btn-ghost border-white/25 bg-transparent text-white hover:border-white">
                 Download CV
               </a>
             </div>
