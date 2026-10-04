@@ -1,6 +1,6 @@
 import { CLIENTS, EXPERTISE, PORTRAIT, VISIBLE_PROJECTS } from "../data";
 import { ProjectGrid } from "../components/ProjectCard";
-import { Arrow, DarkCTA, Wordmarks } from "../components/Shell";
+import { DarkCTA, Wordmarks } from "../components/Shell";
 
 const ICONS = [
   // cursor / product thinking
@@ -55,12 +55,6 @@ export function Home() {
           <span className="strong">Product Designer</span> crafting thoughtful
           digital experiences
         </h1>
-
-        <div className="mt-8">
-          <a href="#/resume" className="btn btn-dark">
-            View my resume <Arrow />
-          </a>
-        </div>
 
         <div className="mt-14 md:mt-20">
           <Wordmarks items={CLIENTS} />
