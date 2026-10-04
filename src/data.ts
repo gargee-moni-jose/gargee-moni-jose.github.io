@@ -9,15 +9,15 @@ const logoUrl = (name: string) => `${import.meta.env.BASE_URL}logos/${name}`;
 export const PORTRAIT = portraitImg;
 
 export const LINKS = {
-  email: "hello@gargeemonijose.com",
-  resumeEmail: "gargeejose@gmail.com",
+  email: "gargeejose@gmail.com",
   phone: "+91 8547797308",
   location: "Kochi, India",
   linkedin: "https://www.linkedin.com/in/gargee-moni-jose",
-  behance: "https://www.behance.net/gargeemonijose",
-  portfolio: `${import.meta.env.BASE_URL}`,
+  behance: "https://www.behance.net/gargeemonijose014",
   cv: `${import.meta.env.BASE_URL}documents/Gargee_Moni_Jose_Maity_Infrastructure_Senior_Product_Designer.pdf`,
 };
+
+export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(LINKS.email)}`;
 
 export const CLIENTS = [
   { name: "Cliniqon", src: logoUrl("cliniqon.svg") },

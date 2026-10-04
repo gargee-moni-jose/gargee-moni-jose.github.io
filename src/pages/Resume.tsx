@@ -102,7 +102,7 @@ export function Resume() {
   return (
     <>
       <section className="wrap pt-14 md:pt-20">
-        <p className="eyebrow">Résumé</p>
+        <p className="eyebrow">Resume</p>
         <div className="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <h1 className="h1">
@@ -123,11 +123,10 @@ export function Resume() {
               Download CV <Arrow />
             </a>
             <ul className="mt-7 space-y-2 text-[14px] text-[var(--color-secondary)]">
-              <li><a className="arrow-link" href={`mailto:${LINKS.resumeEmail}`}>{LINKS.resumeEmail}</a></li>
+              <li><a className="arrow-link" href={`mailto:${LINKS.email}`}>{LINKS.email}</a></li>
               <li><a className="arrow-link" href={`tel:${LINKS.phone}`}>{LINKS.phone}</a></li>
               <li>{LINKS.location}</li>
               <li><a className="arrow-link" href={LINKS.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
-              <li><a className="arrow-link" href={LINKS.portfolio}>Portfolio</a></li>
             </ul>
           </div>
         </div>

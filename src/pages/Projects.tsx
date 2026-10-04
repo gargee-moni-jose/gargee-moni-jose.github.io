@@ -148,7 +148,7 @@ function FilterDropdown({
 }
 
 export function Projects() {
-  const [sort, setSort] = useState("recent");
+  const [sort, setSort] = useState("home");
   const [industry, setIndustry] = useState("all");
 
   const industries = useMemo(
@@ -160,11 +160,11 @@ export function Projects() {
     let out = VISIBLE_PROJECTS.filter(
       (p) => industry === "all" || p.industry === industry
     );
-    out = [...out].sort((a, b) =>
-      sort === "title"
-        ? a.title.localeCompare(b.title)
-        : Number(b.year) - Number(a.year)
-    );
+    if (sort === "title") {
+      out = [...out].sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sort === "recent") {
+      out = [...out].sort((a, b) => Number(b.year) - Number(a.year));
+    }
     return out;
   }, [sort, industry]);
 
@@ -188,7 +188,7 @@ export function Projects() {
         <ExpertiseGroup title="Domains" items={DOMAINS} />
       </section>
 
-      <section className="section wrap" id="work">
+      <section className="section wrap projects-list-section" id="work">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="h2" data-reveal>
             All Projects
@@ -200,6 +200,7 @@ export function Projects() {
               value={sort}
               onChange={setSort}
               options={[
+                { value: "home", label: "Homepage order" },
                 { value: "recent", label: "Most recent" },
                 { value: "title", label: "Title A–Z" },
               ]}

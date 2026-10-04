@@ -1,10 +1,10 @@
-import { LINKS } from "../data";
+import { GMAIL_COMPOSE_URL, LINKS } from "../data";
 import { Arrow, BottomBar } from "../components/Shell";
 
 const ROWS = [
-  { label: "Email", value: LINKS.resumeEmail, href: `mailto:${LINKS.resumeEmail}` },
+  { label: "Email", value: LINKS.email, href: `mailto:${LINKS.email}` },
   { label: "LinkedIn", value: "gargee-moni-jose", href: LINKS.linkedin },
-  { label: "Behance", value: "gargeemonijose", href: LINKS.behance },
+  { label: "Behance", value: "gargeemonijose014", href: LINKS.behance },
 ];
 
 export function Contact() {
@@ -45,7 +45,7 @@ export function Contact() {
             </ul>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <a href={`mailto:${LINKS.resumeEmail}`} className="btn btn-light">
+              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer noopener" className="btn btn-light">
                 Send a Message <Arrow />
               </a>
               <a href={LINKS.cv} download className="btn btn-ghost border-white/25 bg-transparent text-white hover:border-white">

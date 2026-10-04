@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { LINKS } from "../data";
+import { GMAIL_COMPOSE_URL, LINKS } from "../data";
 
 /* ---------------- routing helpers ---------------- */
 
@@ -206,24 +206,24 @@ export function DarkCTA() {
   return (
     <section className="on-dark bg-[var(--color-dark)] text-white" id="contact">
       <div className="wrap">
-        <div className="pb-14 pt-24 text-center md:pb-20 md:pt-36">
+        <div className="pb-10 pt-16 text-center md:pb-12 md:pt-20">
           <h2 className="h2 font-extrabold">Let&apos;s Talk</h2>
-          <p className="mx-auto mt-6 max-w-[640px] text-[15px] leading-[1.7] text-white/70">
+          <p className="mx-auto mt-4 max-w-[640px] text-[15px] leading-[1.7] text-white/70">
             I&apos;m open to new opportunities — full-time roles, freelance
             projects, and collaborations.
             <br className="hidden sm:block" /> If you&apos;re working on
             something interesting, I&apos;d love to hear about it.
           </p>
-          <div className="mt-9 flex justify-center">
-            <a href="#/contact" className="btn btn-light">
+          <div className="mt-6 flex justify-center">
+            <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer noopener" className="btn btn-light">
               Send a Message
               <Arrow />
             </a>
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 border-t border-white/12 py-8 sm:flex-row sm:items-center sm:justify-between">
-          <nav className="flex flex-wrap gap-6" aria-label="Footer">
+        <div className="flex flex-col gap-4 border-t border-white/12 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <nav className="flex flex-wrap gap-5" aria-label="Footer">
             <a className="text-[13.5px] text-white/80 hover:text-white" href="#/">
               Home
             </a>
@@ -240,7 +240,7 @@ export function DarkCTA() {
               Projects
             </a>
           </nav>
-          <nav className="flex flex-wrap gap-6" aria-label="Social">
+          <nav className="flex flex-wrap gap-5" aria-label="Social">
             <a
               className="text-[13.5px] text-white/80 hover:text-white"
               href={LINKS.linkedin}

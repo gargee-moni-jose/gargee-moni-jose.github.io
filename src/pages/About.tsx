@@ -7,7 +7,7 @@ export function About() {
         <p className="eyebrow">About</p>
         <h1 className="display about-display mt-6">
           <span className="strong">Product designer</span> focused on making
-          complex products easier to understand, use, and scale.
+          complex products easier to understand, use, and scale
         </h1>
 
         <div className="mt-16 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
