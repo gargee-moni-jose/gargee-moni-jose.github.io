@@ -1,5 +1,5 @@
 import { GMAIL_COMPOSE_URL, LINKS } from "../data";
-import { Arrow, BottomBar } from "../components/Shell";
+import { Arrow } from "../components/Shell";
 
 const ROWS = [
   { label: "Email", value: LINKS.email, href: `mailto:${LINKS.email}` },
@@ -9,7 +9,7 @@ const ROWS = [
 
 export function Contact() {
   return (
-    <div className="on-dark bg-[var(--color-dark)] text-white">
+    <div className="on-dark flex-1 bg-[var(--color-dark)] text-white">
       <section className="wrap pb-24 pt-16 md:pb-32 md:pt-24">
         <p className="eyebrow text-white/50">Contact</p>
 
@@ -55,10 +55,6 @@ export function Contact() {
           </div>
         </div>
       </section>
-
-      <div className="on-dark">
-        <BottomBar />
-      </div>
     </div>
   );
 }
