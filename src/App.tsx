@@ -38,7 +38,7 @@ const TITLES: Record<string, string> = {
   "/": "Gargee Moni Jose — Product Designer / UI UX Designer",
   "/projects": "Projects — Gargee Moni Jose",
   "/about": "About — Gargee Moni Jose",
-  "/resume": "Résumé — Gargee Moni Jose",
+  "/resume": "Resume — Gargee Moni Jose",
   "/contact": "Contact — Gargee Moni Jose",
 };
 
