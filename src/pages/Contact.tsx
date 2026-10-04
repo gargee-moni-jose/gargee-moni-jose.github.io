@@ -49,7 +49,7 @@ export function Contact() {
                 Send a Message <Arrow />
               </a>
               <a href={LINKS.cv} download="gargee_moni_jose_CV.pdf" className="btn btn-ghost border-white/25 bg-transparent text-white hover:border-white">
-                Download CV
+                Download
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { LINKS } from "../data";
-import { Arrow, DarkCTA } from "../components/Shell";
+import { DarkCTA } from "../components/Shell";
 
 function Block({
   label,
@@ -120,7 +120,7 @@ export function Resume() {
               Download the resume or get in touch.
             </p>
             <a href={LINKS.cv} download="gargee_moni_jose_CV.pdf" className="btn btn-dark mt-6">
-              Download CV <Arrow />
+              Download
             </a>
             <ul className="mt-7 space-y-2 text-[14px] text-[var(--color-secondary)]">
               <li><a className="arrow-link" href={`mailto:${LINKS.email}`}>{LINKS.email}</a></li>

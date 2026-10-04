@@ -121,8 +121,7 @@ export function Nav({ route }: { route: string }) {
               href="#/contact"
               className="btn btn-dark hidden h-[42px] min-h-0 px-[18px] text-[13.5px] md:inline-flex"
             >
-              Connect
-              <span aria-hidden="true">▸</span>
+              Contact
             </a>
             <button
               type="button"
@@ -154,7 +153,7 @@ export function Nav({ route }: { route: string }) {
               href="#/contact"
               className="btn btn-dark mt-4 w-full"
             >
-              Connect <span aria-hidden="true">▸</span>
+              Contact
             </a>
           </nav>
         </div>
@@ -262,7 +261,7 @@ export function DarkCTA() {
               href={LINKS.cv}
               download="gargee_moni_jose_CV.pdf"
             >
-              Download CV
+              Download
             </a>
           </nav>
         </div>
